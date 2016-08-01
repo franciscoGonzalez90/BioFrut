@@ -1,0 +1,61 @@
+<div class="container" ng-controller="obtenerIdProductoControllers" ng-controller="insertarProductoControllers">
+
+			
+				<form name="nuevoProducto" role="form-inline" novalidate>
+			
+					<div class="span3">
+
+					 	<div class="form-group">
+					 		<label for="">Cod. Producto : </label>
+					 		<select  name="cod"  ng-model="producto.IdProducto" required>
+						 	  <option disabled="disabled">Seleccione una opcion</option>
+							  <option ng-repeat="id in IdProducto">{{id.cod}}</option>
+							</select>
+					 		<span style="color:red" ng-show="nuevoProducto.cod.$dirty && nuevoProducto.cod.$invalid">
+				             <span ng-show="nuevoProducto.cod.$error.required">Codigo Requerido.</span>
+					 	</div>
+
+					</div>
+
+				 <div class="span3">
+					 	<div class="form-group">
+							<label for="">Nombre :</label>
+						 	<input type="text" name="nombre" ng-minlength="3" ng-pattern="/^[a-zA-Z\s]*$/" class="form-group" placeholder="nombre" ng-model="producto.Nombre" required>
+						 	 <span style="color:red" ng-show="nuevoProducto.nombre.$dirty && nuevoProducto.nombre.$invalid">
+                             <span ng-show="nuevoProducto.nombre.$error.required">Nombre Requerido.</span>
+                             <span ng-show="nuevoProducto.nombre.$error.minlength">Nombre demasiado corto</span>
+                             <span ng-show="nuevoProducto.nombre.$error.pattern">Ingrese solo letras</span>
+					 	</div>
+				 </div>	
+
+				</form>	
+
+				<br>
+				<br>
+				<br>
+				<br>
+				 <div>
+
+				 	<button id="btnProducto" ng-disabled="!nuevoProducto.$disabled" class="btn btn-success" ng-click="obtenerDatosProducto(producto)"><span class="icon-edit icon-white"></span> Agregar</button> 
+			
+				 	<!-- <button class="btn" ng-click="limpiarDatosProducto()">Limpiar Campos</button> -->
+
+				 </div>
+				 
+				 <br>
+				 <div  id="datosProducto" class="alert alert-success">
+                 <button type="button" class="close" data-dismiss="alert"></button>
+                 <h4>Los datos fueron guardados exitosamente</h4>
+               </div>
+
+			
+
+</div>
+
+<script type="text/javascript">
+$("#datosProducto").hide();
+$("#btnProducto").click(function(){
+$("#btnProducto").attr("disabled", "disabled");
+});
+
+</script>

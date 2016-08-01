@@ -1,0 +1,83 @@
+<div class="container" ng-controller="obtenerIdTproductoControllers"  ng-controller="insertarTproductoControllers">
+
+			
+				<form  name="nuevoTipo" role="form-inline" novalidate>
+			 
+					<div class="span3">
+
+					 	<div class="form-group">
+					 		<label for="">Cod. Tipo Producto: </label>
+					 		<select  name="cod"  ng-model="tproducto.IdTipoProducto" required>
+						 	  <option disabled="disabled">Seleccione una opcion</option>
+							  <option ng-repeat="id in IdTproducto">{{id.cod}}</option>
+							</select>
+					 		<span style="color:red" ng-show="nuevoTipo.cod.$dirty && nuevoTipo.cod.$invalid">
+				            <span ng-show="nuevoTipo.cod.$error.required">Codigo Requerido.</span>
+					 	</div>
+
+					</div>
+
+				 <div class="span3">
+					 	<div class="form-group">
+							<label for="">Nombre :</label>
+						 	<input type="text" name="nombre" ng-minlength="3" ng-pattern="/^[a-zA-Z\s]*$/" class="form-group" placeholder="nombre" ng-model="tproducto.Nombre" required>
+						 	<span style="color:red" ng-show="nuevoTipo.nombre.$dirty && nuevoTipo.nombre.$invalid">
+                             <span ng-show="nuevoTipo.nombre.$error.required">Nombre Requerido.</span>
+                             <span ng-show="nuevoTipo.nombre.$error.minlength">Nombre demasiado corto</span>
+                             <span ng-show="nuevoTipo.nombre.$error.pattern">Ingrese solo letras</span>
+					 	</div>
+				 </div>	
+
+				 <div class="span3">
+					 	<div class="form-group">
+						 	<label for="">Estacion de Cosecha :</label>
+						 	<input type="text" name="cosecha"  ng-minlength="3" ng-pattern="/^[a-zA-Z\s]*$/" class="form-group" placeholder="cosecha" ng-model="tproducto.EstacionCosecha" required>
+						 	<span style="color:red" ng-show="nuevoTipo.cosecha.$dirty && nuevoTipo.cosecha.$invalid">
+				            <span ng-show="nuevoTipo.cosecha.$error.required">Codigo Requerido.</span>
+				            <span ng-show="nuevoTipo.cosecha.$error.minlength">Nombre demasiado corto</span>
+                            <span ng-show="nuevoTipo.cosecha.$error.pattern">Ingrese solo letras</span>
+					 	</div>
+				 </div>
+
+				 <div class="span3">
+					 	<div class="form-group">
+						 	<label for="">Cod. Producto :</label>
+						 	<select name="producto" ng-model="tproducto.IdProducto"  ng-controller="obtenerNombreProductosControllers" required>
+						 		<option disabled="disabled">Seleccione una opcion</option>
+							  	<option  ng-repeat="nombre in nombreProductos">{{nombre.Nombre}}</option>
+							</select>
+							 <span style="color:red" ng-show="nuevoTipo.producto.$dirty && nuevoTipo.producto.$invalid">
+				             <span ng-show="nuevoTipo.producto.$error.required">Producto Requerido.</span>
+					 	</div>
+				 </div>
+
+				</form>	
+
+				<br>
+				<br>
+				<br>
+				<br>
+				 <div>
+
+				 	<button id="btnTipo" ng-disabled="!nuevoTipo.$valid" class="btn btn-success" ng-click="obtenerDatosTproducto(tproducto)"><span class="icon-edit icon-white"></span> Agregar</button> 
+			
+				 	<!-- <button class="btn" ng-click="limpiarDatosTproducto()">Limpiar Campos</button> -->
+
+				 </div>
+
+				 <br>
+				 <div  id="datosTipo" class="alert alert-success">
+                 <button type="button" class="close" data-dismiss="alert"></button>
+                 <h4>Los datos fueron guardados exitosamente</h4>
+               </div>
+
+			
+
+</div>
+
+<script type="text/javascript">
+$("#datosTipo").hide();
+$("#btnTipo").click(function(){
+$("#btnTipo").attr("disabled", "disabled");
+});
+</script>

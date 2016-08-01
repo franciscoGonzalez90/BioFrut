@@ -1,0 +1,122 @@
+
+#pagina-general{
+	margin:0 0 0 0;
+	padding: 0 0 0 0;
+}
+
+#pagina-unica{
+	/*padding:10px;*/
+	/*border:1px solid red;*/
+	/*height: 480px;*/
+}
+
+#brand{
+	margin: 0 0 0 40px;
+}
+
+#pantalla-applicacion{
+	margin: 44px 0px 0 0;
+	padding: 0 0 0 0;
+}
+
+#contenedor-pagina-unica{
+	margin:2px 0 0 0 ;
+	/*border:1px solid #000;*/
+/*	height: 480px;*/
+}
+
+#pant{
+	margin: 5px 0px 0 0;
+	padding: 0 0 0 0;
+}
+
+
+
+#botonera{
+	margin: 0 0px 0 80px;
+    /*border:1px solid #000;*/
+}
+
+#lado-izquierda{
+	margin:5px 0px 0 0px;
+	/*border-right:1px solid #ccc;*/
+}
+
+#lado-izquierda a{
+	color: #000;
+    text-decoration: none;
+}
+
+#lado-izquierda a:hover{
+	color: #33cc33;
+    text-decoration: none;
+}
+
+#lado-derecha{
+	margin:3px 0px 0 10px;
+	/*border: 1px solid #ccc;*/
+}
+
+#contenedor-tool{
+	/*border: 1px solid red;*/
+	margin: 0px 0 0 0px;
+	padding: 0;
+}	
+
+
+#contenedor-botonera{
+	/*border: 1px solid #000;*/
+	margin: 10px 0 0 0px;
+	padding: 0;
+}
+
+
+/**********style de la barra de busqueda*************/
+
+   #custom-search-form {
+        margin:0;
+        margin-top: 0px;
+        padding: 0;
+    }
+ 
+    #custom-search-form .search-query {
+        padding-right: 3px;
+        padding-right: 4px \9;
+        padding-left: 3px;
+        padding-left: 4px \9;
+        /* IE7-8 doesn't have border-radius, so don't indent the padding */
+ 
+        margin-bottom: 0;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        -webkit-transition: width  0.2s ease-in-out;
+    -moz-transition:width  0.2s ease-in-out;
+    -o-transition: width  0.2s ease-in-out;
+    transition: width  0.2s ease-in-out;
+    }
+ 
+    #custom-search-form button {
+        border: 0;
+        background: none;
+        /** belows styles are working good */
+        padding: 2px 5px;
+        margin-top: 2px;
+        position: relative;
+        left: -28px;
+        /* IE7-8 doesn't have border-radius, so don't indent the padding */
+        margin-bottom: 0;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+    }
+ 
+    .search-query:focus + button {
+        z-index: 3;   
+    }   
+    .search-query:focus{
+        width: 260px;
+    }   
+
+
+/***************fin de la animacion de la barra de busqueda*************/

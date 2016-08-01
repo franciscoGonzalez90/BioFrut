@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="BioFrut">
+<head>
+	<title>Administrador</title>
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+	<!-- <link rel="stylesheet" type="text/css" href="bootstrap3/css/bootstrap.css"> -->
+  <!-- <link rel="stylesheet" type="text/css" href="img/"> -->
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+  <link rel="stylesheet" type="text/css" href="../css/ngProgress.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div id="pagina-general" class="container-fluid">
+
+  <div id="contenedor-menu" class="row-fluid">
+      
+         <div id="menu" class="navbar navbar-inverse navbar-fixed-top">
+              <div class="navbar-inner">
+                <span id="brand" class="brand">Carsol Fruit</span>
+                  <ul class="nav">
+                    <!-- <li><a href="#">Home</a></li> -->
+                    <li class="divider-vertical"></li>
+
+                    <!-- links usuarios -->
+                     <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="">
+                            Usuarios <b class="caret "></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                              <li><a href="#/nuevoUsuario">Nuevo Usuario</a></li>
+                              <li><a href="#/Usuarios">Todos los Usuarios</a> </li>
+                              <!-- <li><a href="">Modificar Usuario</a></li> -->
+                        </ul>
+                    </li>
+
+                    <li class="divider-vertical"></li>
+
+                    <!-- links nuevos cargos -->
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="">
+                           Cargos  <b class="caret "></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                              <li><a href="#/nuevoCargo">Nuevo Cargo</a> </li>
+                              <li><a href="#/Cargos">Todos los Cargos</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="divider-vertical"></li>
+
+                    <!-- links nuevos cargos -->
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="">
+                           Despacho  <b class="caret "></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                              <li><a href="#/nuevoDespacho">Nuevo Despacho</a> </li>
+                              <li><a href="#/Despachos">Todos los Despacho</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="divider-vertical"></li>
+
+                    <!-- links nuevos cargos -->
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="">
+                           Control Bodega  <b class="caret "></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                              <li><a href="#/nuevoControlBodega">Nuevo Control Bodega</a> </li>
+                              <li><a href="#/ControlBodegas">Todas las Controles</a></li>
+                        </ul>
+                    </li>
+
+                      <li class="divider-vertical"></li>
+
+                       <!-- links nuevas bodegas -->
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="">
+                           Bodega  <b class="caret "></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                              <li><a href="#/nuevaBodega">Nueva Bodega</a> </li>
+                              <li><a href="#/Bodegas">Todas las Bodegas</a></li>
+                        </ul>
+                    </li>
+
+                      <li class="divider-vertical"></li>
+                      
+                        <!-- links nuevas ciudades -->
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="">
+                           Calidad  <b class="caret "></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                              <li><a href="#/nuevoControl">Nuevo Control</a> </li>
+                              <li><a href="#/Controles">Todos los Controles</a></li>
+                        </ul>
+                    </li>                    
+
+                      <li class="divider-vertical"></li>
+
+                        <!-- links nuevas cuadrillas -->
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="">
+                           Fundos  <b class="caret "></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                              <li><a href="#/nuevoFundo">Nuevo Fundo</a> </li>
+                              <li><a href="#/Fundos">Todos los Fundos</a></li>
+                        </ul>
+                    </li>  
+
+                       <li class="divider-vertical"></li>
+
+                          <!-- links nuevas cuadrillas -->
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="">
+                           Zonas  <b class="caret "></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                              <li><a href="#/nuevaZona">Nueva Zona</a> </li>
+                              <li><a href="#/Zonas">Todas las Zonas</a></li>
+                        </ul>
+                    </li>  
+
+
+                       <li class="divider-vertical"></li>
+                    <li><a onClick="logout()" id="my-modal" data-toggle="modal" data-backdrop="static">Logout <span class="icon-off icon-white"></span></a></li>
+                      <li class="divider-vertical"></li>
+                  </ul>
+              </div>
+          </div>
+
+  </div>
+
+ <div id="pantalla-applicacion" class="row-fluid">
+
+    <div id="lado-izquierda" class="span2">
+
+      <div class="accordion" id="accordion2">
+
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="accordion2" href="#Cuadrilla">
+                Cuadrillas <span class="icon-chevron-down pull-right"></span>
+                </a>
+              </div>
+
+              <div id="Cuadrilla" class="accordion-body collapse">
+                <div class="accordion-inner">
+
+                 <li><a href="#/nuevaCuadrilla">Nueva Cuadrilla</a></li> 
+                  <li><a href="#/Cuadrillas"> Todas las Cuadrillas</a></li>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#Calificacion">
+                Calificaciones <span class="icon-chevron-down pull-right"></span>
+                </a>
+              </div>
+              <div id="Calificacion" class="accordion-body collapse">
+                <div class="accordion-inner">
+
+                  <li><a href="#/nuevaCalificacion">Nueva Calificacion</a></li> 
+                  <li><a href="#/Calificaciones"> Todas las Calificaciones</a></li>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#Huerto">
+                Huertos  <span class="icon-chevron-down pull-right"></span>
+                </a>
+              </div>
+              <div id="Huerto" class="accordion-body collapse">
+                <div class="accordion-inner">
+
+                  <li><a href="#/nuevoHuerto">Nuevo Huerto</a></li> 
+                  <li><a href="#/Huertos"> Todos los Huertos</a></li>
+                 
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#Merma">
+                  Estado Producto <span class="icon-chevron-down pull-right"></span>
+                </a>
+              </div>
+              <div id="Merma" class="accordion-body collapse">
+                <div class="accordion-inner">
+
+                  <li><a href="#/nuevoEstadoProducto">Nuevo Estado Producto</a></li> 
+                  <li><a href="#/EstadoProductos"> Todos los Estados</a></li>
+
+                </div>
+              </div>
+            </div>
+
+              <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#Pais">
+                Paises <span class="icon-chevron-down pull-right"></span>
+                </a>
+              </div>
+              <div id="Pais" class="accordion-body collapse">
+                <div class="accordion-inner">
+
+                   <li><a href="#/nuevoPais">Nuevo Pais</a></li> 
+                  <li><a href="#/Paises"> Todos los Paises</a></li>
+                  
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#Ciudad">
+                Ciudades <span class="icon-chevron-down pull-right"></span>
+                </a>
+              </div>
+              <div id="Ciudad" class="accordion-body collapse">
+                <div class="accordion-inner">
+                  
+                  <li><a href="#/nuevaCiudad">Nueva Ciudad</a></li> 
+                  <li><a href="#/Ciudades"> Todas las Ciudades</a></li>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#Perfil">
+                Perfiles <span class="icon-chevron-down pull-right"></span>
+                </a>
+              </div>
+              <div id="Perfil" class="accordion-body collapse">
+                <div class="accordion-inner">
+
+                  <li><a href="#/nuevoPerfil">Nuevo Perfil</a></li> 
+                  <li><a href="#/Perfiles"> Todos los Perfiles</a></li>
+                  
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#Predio">
+                  Predios <span class="icon-chevron-down pull-right"></span>
+                </a>
+              </div>
+              <div id="Predio" class="accordion-body collapse">
+                <div class="accordion-inner">
+                 
+                 <li><a href="#/nuevoPredio">Nuevo Predio</a></li> 
+                  <li><a href="#/Predios"> Todos los Predios</a></li> 
+
+                </div>
+              </div>
+            </div>
+
+              <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#Producto">
+                Productos <span class="icon-chevron-down pull-right"></span>
+                </a>
+              </div>
+              <div id="Producto" class="accordion-body collapse">
+                <div class="accordion-inner">
+                 
+                  <li><a href="#/nuevoProducto">Nuevo Producto</a></li> 
+                  <li><a href="#/Productos"> Todos los Productos</a></li>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#Region">
+                Regiones <span class="icon-chevron-down pull-right"></span>
+                </a>
+              </div>
+              <div id="Region" class="accordion-body collapse">
+                <div class="accordion-inner">
+
+                  <li><a href="#/nuevaRegion">Nueva Region</a></li> 
+                  <li><a href="#/Regiones"> Todas las Regiones</a></li>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#Bandeja">
+                Bandejas  <span class="icon-chevron-down pull-right"></span>
+                </a>
+              </div>
+              <div id="Bandeja" class="accordion-body collapse">
+                <div class="accordion-inner">
+
+                  <li><a href="#/nuevaBandeja">Nueva Bandeja</a></li> 
+                  <li><a href="#/Bandejas"> Todas las Bandejas</a></li>
+
+                 
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#Tarjeta">
+                  Tarjeta Trabajadores <span class="icon-chevron-down pull-right"></span>
+                </a>
+              </div>
+              <div id="Tarjeta" class="accordion-body collapse">
+                <div class="accordion-inner">
+
+                  <li><a href="#/nuevaIdentificacion">Nueva Identificacion</a></li> 
+                  <li><a href="#/Identificaciones"> Identificaciones</a></li>
+
+                  
+                </div>
+              </div>
+            </div>
+
+             <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#Almacenaje">
+                Almacenajes <span class="icon-chevron-down pull-right"></span>
+                </a>
+              </div>
+              <div id="Almacenaje" class="accordion-body collapse">
+                <div class="accordion-inner">
+                 
+                  <li><a href="#/nuevoAlmacenaje">Nuevo Almacenaje</a></li> 
+                  <li><a href="#/Almacenajes"> Todos los Almacenajes</a></li>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#TProducto">
+                  Tipos de Productos <span class="icon-chevron-down pull-right"></span>
+                </a>
+              </div>
+              <div id="TProducto" class="accordion-body collapse">
+                <div class="accordion-inner">
+                  
+                  <li><a href="#/nuevoTproducto">Nuevo Tipo de Producto</a></li> 
+                  <li><a href="#/Tproductos"> Tipos de Productos</a></li>
+
+                </div>
+              </div>
+            </div>
+
+             <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#Trabajador">
+                Trabajadores  <span class="icon-chevron-down pull-right"></span>
+                </a>
+              </div>
+              <div id="Trabajador" class="accordion-body collapse">
+                <div class="accordion-inner">
+
+                  <li><a href="#/nuevoTrabajador">Nuevo Trabajador</a></li> 
+                  <li><a href="#/Trabajadores"> Todos los Trabajadores</a></li>
+
+                </div>
+              </div>
+            </div>
+
+
+
+      </div>
+        
+    </div>
+
+    <div id="lado-derecha" class="span10">
+      <div class="row-fluid">
+    
+      </div>
+      <div id="contenedor-tool" class="row-fluid">
+
+         <div id="contenedor-botonera" class="span12">
+
+
+
+            <form id="custom-search-form" class="form-search form-horizontal pull-right">
+                <div class="input-append span12">
+                    <input ng-model="searchText" type="text" class="search-query mac-style" placeholder="Filtrar">
+                    <!-- <button type="submit" class="btn"><i class="icon-filter pull-left"></i></button> -->
+                </div>
+            </form>
+
+          <div id="botonera" class="btn-toolbar ">
+          </div>
+         </div>
+         
+      </div>
+      <hr>
+      <div id="contenedor-pagina-unica" class="row-fluid">
+          <div id="mora" class="span12">
+            <div id="pagina-unica">
+              <!-- aca se muestran las diferentes pantallas de la APP -->
+               <div ng-view>
+
+               </div>
+            </div>
+         </div>
+      </div>
+    </div>
+
+ </div>
+
+
+
+  
+  
+</div>
+
+<script type="text/javascript" src="../js/jquery-2.1.1.js"></script>
+<script type="text/javascript" src="../js/bootstrap.js"></script>
+<!-- <script type="text/javascript" src="../js/bootstrap-modal.js"></script> -->
+<script type="text/javascript" src="../js/angular.js"></script>
+<script type="text/javascript" src="../js/angular-route.js"></script>
+<script type="text/javascript" src="../routes/BioFrutRoutes.js"></script>
+
+<script type="text/javascript" src="../js/ngProgress.js"></script>
+
+<script type="text/javascript" src="../controllers/UsuarioControllers.js"></script>
+<script type="text/javascript" src="../models/UsuarioModels.js"></script>
+
+<script type="text/javascript" src="../controllers/ControlBodegaControllers.js"></script>
+<script type="text/javascript" src="../models/ControlBodegaModels.js"></script>
+
+<script type="text/javascript" src="../controllers/DespachoControllers.js"></script>
+<script type="text/javascript" src="../models/DespachoModels.js"></script>
+
+<script type="text/javascript" src="../controllers/EstadoProductoControllers.js"></script>
+<script type="text/javascript" src="../models/EstadoProductoModels.js"></script>
+
+<script type="text/javascript" src="../controllers/CargoControllers.js"></script>
+<script type="text/javascript" src="../models/CargoModels.js"></script>
+
+<script type="text/javascript" src="../controllers/BandejaControllers.js"></script>
+<script type="text/javascript" src="../models/BandejaModels.js"></script>
+
+<script type="text/javascript" src="../controllers/BodegaControllers.js"></script>
+<script type="text/javascript" src="../models/BodegaModels.js"></script>
+
+<script type="text/javascript" src="../controllers/CalificacionControllers.js"></script>
+<script type="text/javascript" src="../models/CalificacionModels.js"></script>
+
+<script type="text/javascript" src="../controllers/CiudadControllers.js"></script>
+<script type="text/javascript" src="../models/CiudadModels.js"></script>
+
+<script type="text/javascript" src="../controllers/ControlControllers.js"></script>
+<script type="text/javascript" src="../models/ControlModels.js"></script>
+
+<script type="text/javascript" src="../controllers/CuadrillaControllers.js"></script>
+<script type="text/javascript" src="../models/CuadrillaModels.js"></script>
+
+<script type="text/javascript" src="../controllers/FundoControllers.js"></script>
+<script type="text/javascript" src="../models/FundoModels.js"></script>
+
+<script type="text/javascript" src="../controllers/ZonaControllers.js"></script>
+<script type="text/javascript" src="../models/ZonaModels.js"></script>
+
+<script type="text/javascript" src="../controllers/HuertoControllers.js"></script>
+<script type="text/javascript" src="../models/HuertoModels.js"></script>
+
+<script type="text/javascript" src="../controllers/PaisControllers.js"></script>
+<script type="text/javascript" src="../models/PaisModels.js"></script>
+
+<script type="text/javascript" src="../controllers/ProductoControllers.js"></script>
+<script type="text/javascript" src="../models/ProductoModels.js"></script>
+
+<script type="text/javascript" src="../controllers/RegionControllers.js"></script>
+<script type="text/javascript" src="../models/RegionModels.js"></script>
+
+<script type="text/javascript" src="../controllers/PerfilControllers.js"></script>
+<script type="text/javascript" src="../models/PerfilModels.js"></script>
+
+<script type="text/javascript" src="../controllers/PredioControllers.js"></script>
+<script type="text/javascript" src="../models/PredioModels.js"></script>
+
+<script type="text/javascript" src="../controllers/TarjetaControllers.js"></script>
+<script type="text/javascript" src="../models/TarjetaModels.js"></script>
+
+<script type="text/javascript" src="../controllers/AlmacenajeControllers.js"></script>
+<script type="text/javascript" src="../models/AlmacenajeModels.js"></script>
+
+<script type="text/javascript" src="../controllers/TproductoControllers.js"></script>
+<script type="text/javascript" src="../models/TproductoModels.js"></script>
+
+<script type="text/javascript" src="../controllers/TrabajadorControllers.js"></script>
+<script type="text/javascript" src="../models/TrabajadorModels.js"></script>
+
+ <script type="text/javascript">
+
+function logout() {
+ 
+    if (confirm("Realmente desea salir!") == true) {
+        window.location="/logout";
+      }
+}
+
+ </script>
+</body>
+</html>

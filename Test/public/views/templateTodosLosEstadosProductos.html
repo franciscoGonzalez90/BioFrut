@@ -1,0 +1,22 @@
+	<!-- Template del Stock del sistema en donde se cargan los stocks y los presenta en una tabla  -->
+	<div class="container" ng-controller="todosLosEstadoProductosControllers">
+
+		<div class="row">
+			
+			<table class="table table-bordered">
+				<tr><td>Codigo</td><td>Estado del producto</td><!-- <td>Bodega</td> --><!-- <td>Acciones</td> --></tr>
+				<tr ng-repeat="estado in todosLosEstadoProductos | filter:searchText">
+					<td>{{estado.IdEstadoProducto}}</td>
+					<td>{{estado.Nombre}}</td>
+					<!-- <td>{{estado.Bodega}}</td> -->
+					<!-- <td>
+					<button type="button" class="btn btn-small btn-success"> <span class="icon-edit icon-white"></span> </button>
+					<button type="button" class="btn btn-small btn-success"> <span class="icon-trash icon-white"></span>  </button>
+					
+					</td> -->
+				</tr>
+			</table>
+
+		</div>
+	
+	</div>	

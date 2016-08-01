@@ -1,0 +1,25 @@
+	<!-- Template del Usuario del sistema en donde se cargan los usuarios y los presenta en una tabla  -->
+	<div class="container" ng-controller="todosLosUsuariosControllers">
+
+		<div class="row">
+			
+			<table class="table table-bordered">
+				<tr><td>Codigo</td><td>Nombre</td><td>Apellido</td><!-- <td>Area</td> --><td>Cargo</td><td>Perfil</td><!-- <td>Acciones</td> --></tr>
+				<tr ng-repeat="usuario in todosLosUsuarios | filter:searchText">
+					<td>{{usuario.IdUsuario}}</td>
+					<td>{{usuario.Nombre}}</td>
+					<td>{{usuario.Apellido}}</td>
+				<!-- 	<td>{{usuario.Area}}</td> -->
+					<td>{{usuario.Cargo}}</td>
+					<td>{{usuario.Login}}</td>
+				<!-- 	<td>
+					<button type="button" class="btn btn-small btn-success"> <span class="icon-edit icon-white"></span> </button>
+					<button type="button" class="btn btn-small btn-success"> <span class="icon-trash icon-white"></span>  </button>
+					
+					</td> -->
+				</tr>
+			</table>
+
+		</div>
+	
+	</div>	

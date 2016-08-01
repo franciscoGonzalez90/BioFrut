@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html ng-app="BioFrut">
+<head>
+<title>Gerente</title>
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="../css/bootstrap-responsive.css">
+<link rel="stylesheet" type="text/css" href="../css/responsive.css">
+<link rel="stylesheet" type="text/css" href="../css/c3.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style type="text/css">
+    #chart1{
+    	width: 1000px;
+    	margin:0 auto;
+    }
+    #chart2{
+    	/*border:1px solid #000;*/
+    	width: 900px;
+    	margin:0 auto;
+    }
+
+    #puntaje{
+      border-bottom:1px solid #ccc;
+      /*border-radius: 4px;*/
+    }
+
+
+    #brand{
+      margin-left: 50px;
+    }
+
+    #myTab{
+      margin-left: 50px;
+      margin-top: 30px;
+    }
+
+     #kpiperdida{
+      margin-top: 50px;
+      border:1px solid #000;
+      border-radius:4px; 
+    }
+
+    #kpitotal{
+      margin-top: 20px;
+      border:1px solid #000;
+      border-radius:4px;
+    }
+
+     #kpipromedio{
+      margin-top: 20px;
+      border:1px solid #000;
+      border-radius:4px;
+    }
+</style>
+
+</head>
+<body>
+  <br>
+  
+        <div id="contenedor-menu" class="row-fluid">
+      
+         <div id="menu" class="navbar navbar-inverse navbar-fixed-top">
+              <div class="navbar-inner">
+                <span id="brand" class="brand">Carsol Fruit</span>
+                  <ul class="nav">
+                    <!-- <li><a href="#">Home</a></li> -->
+                    <li class="divider-vertical"></li>
+
+                    <!-- links usuarios -->
+                     <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="">
+                            Reporte Cuadrillas <b class="caret "></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                              <li><a href="#/reporteDiarioCuadrillas">Reporte Diario</a></li>
+                              <li><a href="#/reporteMensualCuadrillas">Reporte Mensual</a></li>
+                              <!-- <li><a href="">Modificar Usuario</a></li> -->
+                        </ul>
+                    </li>
+
+                    <li class="divider-vertical"></li>
+
+                    <!-- links nuevos cargos -->
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="">
+                           Reporte Huertos <b class="caret "></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                              <li><a href="#/reporteDiarioHuertos">Reporte Diario</a> </li>
+                              <li><a href="#/reporteMensualHuertos">Reporte Mensual</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="divider-vertical"></li>
+                    <li><a href="#/reporteMensualKpi">Indicadores de Desempeño</a></li>
+                    <!-- links nuevos cargos -->
+                   <!--  <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="">
+                           Reporte Trabajadores  <b class="caret "></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                              <li><a href="#">Reporte Diario</a> </li>
+                              <li><a href="#">ReporteMensual</a></li>
+                        </ul>
+                    </li> -->
+                      <li class="divider-vertical"></li>
+                    <li><a onClick="logout()">Logout <span class="icon-off icon-white"></span></a></li>
+                      <li class="divider-vertical"></li>
+                  </ul>
+              </div>
+          </div>
+
+  </div>
+    
+     <br>
+     <br>
+
+     <div ng-view>
+     </div>     
+  
+ 
+<script type="text/javascript" src="../js/jquery-2.1.1.js"></script>
+<script type="text/javascript" src="../js/bootstrap.js"></script>
+<script type="text/javascript" src="../js/angular.js"></script>
+<script type="text/javascript" src="../js/angular-route.js"></script>
+
+<script type="text/javascript" src="../routes/BioFrutRoutes.js"></script>
+
+<script type="text/javascript" src="../controllers/reporteDiarioCuadrillasControllers.js"></script>
+<script type="text/javascript" src="../controllers/reporteDiarioHuertoControllers.js"></script>
+<script type="text/javascript" src="../controllers/reporteMensualCuadrillaControllers.js"></script>
+<script type="text/javascript" src="../controllers/reporteMensualHuertoControllers.js"></script>
+<script type="text/javascript" src="../controllers/reporteKpiProduccionControllers.js"></script>
+<script type="text/javascript" src="../models/reporteKpiProduccionModels.js"></script>
+<!-- <script type="text/javascript" src="../models/reporteModel.js"></script> -->
+
+
+<script type="text/javascript" src="../js/c3.js"></script>
+<script type="text/javascript" src="../js/d3.js"></script>
+
+<script type="text/javascript">
+
+$('#chart1').slideDown();
+
+$('#chart3').slideDown();  
+
+$('#chart').slideDown();
+
+</script>
+
+<script type="text/javascript">
+
+function logout() {
+ 
+    if (confirm("Realmente desea salir!") == true) {
+        window.location="/logout";
+      }
+}
+
+ </script>
+</body>
+</html>

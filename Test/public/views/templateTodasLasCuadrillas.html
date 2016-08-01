@@ -1,0 +1,23 @@
+	<!-- Template del las Bandeja del sistema en donde se cargan las bandejas y los presenta en una tabla  -->
+	<div class="container" ng-controller="todasLasCuadrillasControllers">
+
+		<div class="row">
+			
+			<table class="table table-bordered">
+				<tr><td>Codigo</td><td>Nombre</td><td>Tarjeta</td><td>Huerto</td></tr>
+				<tr ng-repeat=" cuadrilla in todasLasCuadrillas | filter:searchText">
+					<td>{{cuadrilla.IdCuadrilla}}</td>
+					<td>{{cuadrilla.Nombre}}</td>
+					<td>{{cuadrilla.IdTarjeta}}</td>
+					<td>{{cuadrilla.Huerto}}</td>
+					<!-- <td>
+					<button type="button" class="btn btn-small btn-success"> <span class="icon-edit icon-white"></span> </button>
+					<button type="button" class="btn btn-small btn-success"> <span class="icon-trash icon-white"></span>  </button>
+					<!-- </span> <button type="button" class="btn btn-small btn-success"> <span class="icon-plus icon-white"></span>  </button></a> -->
+					<!-- </td> --> 
+				</tr>
+			</table>
+
+		</div>
+	
+	</div>	

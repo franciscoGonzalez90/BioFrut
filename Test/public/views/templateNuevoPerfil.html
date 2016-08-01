@@ -1,0 +1,73 @@
+<div class="container"   ng-controller="obtenerIdPerfilControllers" ng-controller="insertarPerfilControllers">
+
+			
+				<form name="nuevoPerfil" role="form-inline" novalidate>
+			
+					<div class="span3">
+
+					 	<div class="form-group">
+					 		<label for="">Cod. Perfil: </label>
+					 		<select  name="cod"  ng-model="perfil.IdPerfil" required>
+						 	  <option disabled="disabled">Seleccione una opcion</option>
+							  <option ng-repeat="id in IdPerfil">{{id.cod}}</option>
+							</select>
+					 		 <span style="color:red" ng-show="nuevoPerfil.cod.$dirty && nuevoPerfil.cod.$invalid">
+				             <span ng-show="nuevoPerfil.cod.$error.required">Codigo Invalido.</span>
+				              <span ng-show="nuevoPerfil.cod.$error.pattern">Invalido</span>
+					 	</div>
+
+					</div>
+
+				 <div class="span3">
+					 	<div class="form-group">
+							<label for="">Login :</label>
+						 	<input type="text" class="form-group" name="login" ng-minlength="3" ng-maxlength="12" ng-pattern="/^[a-z0-9_-]{3,15}$/" placeholder="login" ng-model="perfil.Login" required>
+						 	<span style="color:red" ng-show="nuevoPerfil.login.$dirty && nuevoPerfil.login.$invalid">
+                             <span ng-show="nuevoPerfil.login.$error.required">Login Requerido.</span>
+                             <span ng-show="nuevoPerfil.login.$error.minlength">Login demasiado corto</span>
+                             <span ng-show="nuevoPerfil.login.$error.pattern">Login Invalido</span>
+                             <span ng-show="nuevoPerfil.login.$error.maxlength">Login demasiado largo</span>
+					 	</div>
+				 </div>	
+
+				 <div class="span3">
+					 	<div class="form-group">
+						 	<label for="">Password :</label>
+						 	<input type="password" class="form-group" name="password"  ng-pattern="/(^(?=.*[a-z])(?=.*[A-Z])(?=.*\d){6,20}.+$)/" placeholder="password" ng-model="perfil.Password" required >
+						 	<span style="color:red" ng-show="nuevoPerfil.password.$dirty && nuevoPerfil.password.$invalid">
+                             <span ng-show="nuevoPerfil.password.$error.required">Password Invalida.</span>
+                             <span ng-show="nuevoPerfil.password.$error.pattern">debe contener por lo menos una mayuscula y numeros.</span>
+
+					 	</div>
+				 </div>
+
+				</form>	
+
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				 <div>
+
+				 	<button  id="btnPerfil" ng-disabled="!nuevoPerfil.$valid" class="btn btn-success" ng-click="obtenerDatosPerfil(perfil)"><span class="icon-edit icon-white"></span> Agregar</button> 
+			
+				 	<!-- <button class="btn" ng-click="limpiarDatosPerfil()">Limpiar Campos</button> -->
+				 </div>
+                  <br>
+				<div  id="datosPerfil" class="alert alert-success">
+                 <button type="button" class="close" data-dismiss="alert"></button>
+                 <h4>Los datos fueron guardados exitosamente</h4>
+                </div>
+
+			
+
+</div>
+
+<script type="">
+$("#datosPerfil").hide();
+$('#btnPerfil').click(function() {
+$("#btnPerfil").attr("disabled", "disabled");
+});
+
+</script>

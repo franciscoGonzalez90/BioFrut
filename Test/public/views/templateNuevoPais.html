@@ -1,0 +1,59 @@
+<div class="container" ng-controller="obtenerIdPaisControllers" ng-controller="insertarPaisControllers" >
+
+			
+				<form name="nuevoPais" role="form-inline" novalidate>
+			
+					<div class="span3">
+
+					 	<div class="form-group">
+					 		<label for="">Cod. Pais : </label>
+					 		<select  name="codigo"  ng-model="pais.IdPais">
+						 	  <option disabled="disabled">Seleccione una opcion</option>
+							  <option ng-repeat="id in IdPais">{{id.cod}}</option>
+							</select>
+					 		<span style="color:red" ng-show="nuevoPais.cod.$dirty && nuevoPais.cod.$invalid">
+				            <span ng-show="nuevoPais.cod.$error.required">Codigo Requerido.</span>
+					 	</div>
+
+					</div>
+
+				 <div class="span3">
+					 	<div class="form-group">
+							<label for="">Nombre :</label>
+						 	<input type="text" name="nombre" class="form-group"  ng-minlength="3" ng-pattern="/^[a-zA-ZÑñ\s]*$/" placeholder="nombre" ng-model="pais.Nombre" required>
+						 	<span style="color:red" ng-show="nuevoPais.nombre.$dirty && nuevoPais.nombre.$invalid">
+                             <span ng-show="nuevoPais.nombre.$error.required">Nombre Requerido.</span>
+                             <span ng-show="nuevoPais.nombre.$error.minlength">Nombre demasiado corto</span>
+                             <span ng-show="nuevoPais.nombre.$error.pattern">Ingrese solo letras</span>
+					 	</div>
+				 </div>	
+
+
+				</form>	
+
+				<br>
+				<br>
+				<br>
+				<br>
+				 <div>
+
+				 	<button id="btnPais" ng-disabled="!nuevoPais.$valid" class="btn btn-success" ng-click="obtenerDatosPais(pais)"><span class="icon-edit icon-white"></span> Agregar</button> 
+			
+				 	<!-- <button class="btn" ng-click="limpiarDatosPais()">Limpiar Campos</button> -->
+
+				 </div>
+                 <br>
+                 <div  id="datosPais" class="alert alert-success">
+                 <button type="button" class="close" data-dismiss="alert"></button>
+                 <h4>Los datos fueron guardados exitosamente</h4>
+               </div>  
+			
+
+</div>
+
+<script type="text/javascript">
+$("#datosPais").hide();
+$("#btnPais").click(function(){
+$("#btnPais").attr("disabled", "disabled");
+});
+</script>

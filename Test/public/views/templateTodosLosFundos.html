@@ -1,0 +1,23 @@
+	<!-- Template del Fundo del sistema en donde se cargan los fundos y los presenta en una tabla  -->
+	<div class="container" ng-controller="todosLosFundosControllers">
+
+		<div class="row">
+			
+			<table class="table table-bordered">
+				<tr><td>Codigo</td><td>Nombre</td><td>Dirección</td><td>Ciudad</td><!-- <td>Acciones</td> --></tr>
+				<tr ng-repeat="fundo in todosLosFundos | filter:searchText">
+					<td>{{fundo.IdFundo}}</td>
+					<td>{{fundo.Nombre}}</td>
+					<td>{{fundo.Direccion}}</td>
+					<td>{{fundo.Ciudad}}</td>
+					<!-- <td>
+					<button type="button" class="btn btn-small btn-success"> <span class="icon-edit icon-white"></span> </button>
+					<button type="button" class="btn btn-small btn-success"> <span class="icon-trash icon-white"></span>  </button>
+					
+					</td> -->
+				</tr>
+			</table>
+
+		</div>
+	
+	</div>	

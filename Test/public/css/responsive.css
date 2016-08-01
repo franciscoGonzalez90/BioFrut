@@ -1,0 +1,23 @@
+/* Escritorio*/
+@media(min-width: 1200px){
+body{color: black;}
+}
+
+/*Escritorio pequeño o Tablet */
+@media(min-width: 768px) and (max-width: 979px){
+body{color: black;}
+}
+/*Tablet o Smartphone*/
+@media(max-width: 767px){
+body{color: blue;}
+
+div{text-align: center;}
+}
+
+button{width: 150px;}
+button{height: 50px;}
+}
+/* Smartphone*/
+@media(max-width: 480px){
+body{color: black;}
+}

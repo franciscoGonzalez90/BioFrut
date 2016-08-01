@@ -1,0 +1,21 @@
+	<!-- Template del las Calificaciones del sistema en donde se cargan las calificaciones y los presenta en una tabla  -->
+	<div class="container" ng-controller="todasLasCalificacionesControllers">
+
+		<div class="row">
+			
+			<table class="table table-bordered">
+				<tr><td>Codigo</td><td>Nota</td><!-- <td>Acciones</td> --></tr>
+				<tr ng-repeat=" calificacion in todasLasCalificaciones | filter:searchText">
+					<td>{{calificacion.IdCalificacion}}</td>
+					<td>{{calificacion.Nota}}</td>
+					<!-- <td>
+					<button type="button" class="btn btn-small btn-success"> <span class="icon-edit icon-white"></span> </button>
+					<button type="button" class="btn btn-small btn-success"> <span class="icon-trash icon-white"></span>  </button>
+					
+					</td> -->
+				</tr>
+			</table>
+
+		</div>
+	
+	</div>	

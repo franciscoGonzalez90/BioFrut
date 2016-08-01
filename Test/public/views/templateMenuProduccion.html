@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html ng-app="BioFrut">
+<head>
+	<meta charset="UTF-8">
+	<title>Produccion</title>
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap-responsive.css">
+	<link rel="stylesheet" type="text/css" href="../css/responsive.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body> 
+
+<div >
+	<div id="menu" class="text-center">
+
+	 <h1>Menu Digitador</h1>
+	 <br>
+	 <br>
+		 <ul class="nav nav-tabs nav-stacked">
+		  <li id="bandeja"><a href="#/nuevaBandeja"><h3>Ingresar Bandeja</h3></a></li>
+		  <li id="control"><a href="#/nuevoControl"><h3>Ingresar Control de Calidad</h3></a></li>
+		  <li id="despacho"><a href="#/nuevoDespacho"><h3>Ingresar Despacho</h3></a></li>
+		  <li><a onClick="logout()"><h3>Logout</h3></a></li>
+		 </ul>
+
+	</div>
+</div>
+
+<div class="center-block" ng-view></div>
+ 
+<script type="text/javascript" src="../js/jquery-2.1.1.js"></script>
+<script type="text/javascript" src="../js/bootstrap.js"></script>
+
+<script type="text/javascript" src="../js/angular.js"></script>
+<script type="text/javascript" src="../js/angular-route.js"></script>
+<script type="text/javascript" src="../routes/BioFrutRoutes.js"></script>
+
+<script type="text/javascript" src="../controllers/DespachoControllers.js"></script>
+<script type="text/javascript" src="../models/DespachoModels.js"></script>
+
+<script type="text/javascript" src="../controllers/BandejaControllers.js"></script>
+<script type="text/javascript" src="../models/BandejaModels.js"></script>
+
+<script type="text/javascript" src="../controllers/ControlControllers.js"></script>
+<script type="text/javascript" src="../models/ControlModels.js"></script>
+
+<script type="text/javascript" src="../controllers/TarjetaControllers.js"></script>
+<script type="text/javascript" src="../models/TarjetaModels.js"></script>
+
+<script type="text/javascript" src="../controllers/TproductoControllers.js"></script>
+<script type="text/javascript" src="../models/TproductoModels.js"></script>
+
+<script type="text/javascript" src="../controllers/ControlControllers.js"></script>
+<script type="text/javascript" src="../models/ControlModels.js"></script>
+
+<script type="text/javascript" src="../controllers/CuadrillaControllers.js"></script>
+<script type="text/javascript" src="../models/CuadrillaModels.js"></script>
+
+<script type="text/javascript" src="../controllers/EstadoProductoControllers.js"></script>
+<script type="text/javascript" src="../models/EstadoProductoModels.js"></script>
+
+<script type="text/javascript" src="../controllers/CalificacionControllers.js"></script>
+<script type="text/javascript" src="../models/CalificacionModels.js"></script>
+<script type="text/javascript">
+
+function logout() {
+ 
+    if (confirm("Realmente desea salir!") == true) {
+        window.location="/logout";
+      }
+}
+
+ </script>
+</body>
+</html>

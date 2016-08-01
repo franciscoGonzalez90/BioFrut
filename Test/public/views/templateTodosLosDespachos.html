@@ -1,0 +1,25 @@
+<div class="container" ng-controller="todosLosDespachosControllers">
+
+		<div class="row">
+			
+			<table class="table table-bordered">
+				<tr><td>Codigo</td><td>Fecha</td><td>Hora</td><td>Cantidad de Pale</td><td>Tipo de Producto</td><td>Control de Calidad</td><td>Cuadrilla</td><!-- <td>Acciones</td> --></tr>
+				<tr ng-repeat="despacho in todosLosDespachos | filter:searchText">
+					<td>{{despacho.IdDespacho}}</td>
+					<td>{{despacho.Fecha}}</td>
+					<td>{{despacho.Hora}}</td>
+					<td>{{despacho.CantidadPale}}</td>
+					<td>{{despacho.Nombre}}</td>
+					<td>{{despacho.IdControl}}</td>
+					<td>{{despacho.Cuadrilla}}</td>
+					<!-- <td>
+					<button type="button" class="btn btn-small btn-success"> <span class="icon-edit icon-white"></span> </button>
+					<button type="button" class="btn btn-small btn-success"> <span class="icon-trash icon-white"></span>  </button>
+					
+					</td> -->
+				</tr>
+			</table>
+
+		</div>
+	
+	</div>	

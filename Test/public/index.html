@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <head>
+    <script type="text/javascript" src="js/jquery-2.1.1.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">
+        body{
+            background-image: url('img/2.jpg');
+            color: white;
+        }
+
+        #usuario,#clave,#enviar{
+            border-color: #000;
+        }
+
+
+    </style>
+    </head>
+    <br><br><br>
+    <h1 class="text-center">Sistema BioFrut</h1>
+    <h4 class="text-center">La productividad es lo primero!</h4>
+    <br>
+
+    <!-- LOGIN FORM -->
+    <div id="login" class="text-center">
+       
+            <form class="center" action="/systemLogin" method="post">
+                <br>
+               
+                <div class="form-group">
+                    <label>Username</label>
+                    <input id="usuario" type="text" class="form-control" name="username">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input id="clave" type="password" class="form-control" name="password">
+                </div>
+                <br>
+                <button id="enviar" type="submit" class="btn btn-success btn-large">Acceder</button>
+            </form>
+    
+    </div>
+ 
+    <!-- <div class="text-center"><img src="img/carsol.png"></div> -->
+  </body>
+</html>

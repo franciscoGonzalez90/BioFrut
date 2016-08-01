@@ -1,0 +1,22 @@
+	<!-- Template del Predio del sistema en donde se cargan los predios y los presenta en una tabla  -->
+	<div class="container" ng-controller="todosLosPrediosControllers">
+
+		<div class="row">
+			
+			<table class="table table-bordered">
+				<tr><td>Codigo</td><td>Nombre</td><td>Fundo</td><!-- <td>Acciones</td> --></tr>
+				<tr ng-repeat="predio in todosLosPredios | filter:searchText">
+					<td>{{predio.IdPredio}}</td>
+					<td>{{predio.Nombre}}</td>
+					<td>{{predio.Fundo}}</td>
+					<!-- <td>
+					<button type="button" class="btn btn-small btn-success"> <span class="icon-edit icon-white"></span> </button>
+					<button type="button" class="btn btn-small btn-success"> <span class="icon-trash icon-white"></span>  </button>
+					
+					</td> -->
+				</tr>
+			</table>
+
+		</div>
+	
+	</div>	

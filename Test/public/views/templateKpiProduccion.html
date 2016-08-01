@@ -1,0 +1,75 @@
+<div class="container" ng-controller="todasLasMermasControllers">
+ <br>
+  
+   <div  class="text-center"><h2>Indicadores de Desempeño Mensual</h2></div>
+   <div  class="text-center">Ultima Actualizacion: {{ultimaActualizacion}}</div>
+
+  
+   <br>
+   <br>
+   <div class="span4"></div>
+   <div class="span4">
+      <form role="form-inline">
+        
+            <div class="form-group">
+               <label for="">Seleccione el Mes :</label>
+                  <select id="fechas" class="form-group" ng-model="valor">
+                      <!-- <option disabled="disabled">Seleccione una opcion</option> -->
+                      <option  ng-repeat="resp in fechas  track by $index">{{resp}}</option>
+                  </select>
+             
+            </div>
+
+            <button id="enviar" class="btn btn-primary" ng-click="obtenerDatosMes(valor)">Generar</button>
+      </form>
+             
+                
+    </div>
+   
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+
+   <div id="kpiperdida">
+        <div class="text-center"><h2>Total de Merma</h2>(Bandejas)</div>
+  
+        <div class="text-center"><h2>{{totalMerma}}</h2></div>
+   </div>
+
+	<br>
+  <br>
+
+  <div id="kpitotal">
+        <div class="text-center"><h2>Total Produccion</h2>(Bandejas)</div>
+  
+        <div class="text-center"><h2>{{bandejasMes}}</h2></div>
+   </div>  
+  <br>
+  <br>
+
+  <div id="kpipromedio">
+        <div class="text-center"><h2>Porcentaje de Perdida</h2> (merma / bandejas producidas)*100</div>
+    
+        <div class="text-center"><h2>{{totalPromedio}}%</h2></div>
+   </div>  
+  <br>
+  <br>
+
+      
+      <table class="table table-bordered">
+        <tr><td>Estado del Producto</td><td>Cantidad de merma (Bandejas)</td></tr>
+        <tr ng-repeat=" bandeja in todasLasMermas track by $index | filter:searchText">
+          <td>{{bandeja.estado}}</td>
+          <td>{{bandeja.merma}}</td>
+          <!-- <td>
+          <button type="button" class="btn btn-small btn-success"> <span class="icon-edit icon-white"></span> </button>
+          <button type="button" class="btn btn-small btn-success"> <span class="icon-trash icon-white"></span>  </button>
+          
+          </td> -->
+        </tr>
+      </table>
+
+
+  </div>

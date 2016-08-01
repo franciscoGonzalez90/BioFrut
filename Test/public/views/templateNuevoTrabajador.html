@@ -1,0 +1,97 @@
+<div class="container" ng-controller="insertarTrabajadorControllers">
+
+				<form name="nuevoTrabajador" role="form-inline" novalidate>
+			      <div class="row">
+					<div class="span3">
+
+					 	<div class="form-group">
+					 		<label for="">Rut : </label>
+					 		<input type="text" name="rut" class="form-group" ng-maxlength ng-pattern="/^0*(\d{1,3}(\.?\d{3})*)\-?([\dkK])$/" placeholder="Rut" ng-model="trabajador.Rut" required>
+					 		<span style="color:red" ng-show="nuevoTrabajador.rut.$dirty && nuevoTrabajador.rut.$invalid">
+					 		 <span ng-show="nuevoTrabajador.rut.$error.required">Rut Rquiredo.</span>
+                             <span ng-show="nuevoTrabajador.rut.$error.maxlength">Rut demasiado largo</span>
+                             <span ng-show="nuevoTrabajador.rut.$error.pattern">Rut Invalido</span>
+
+					 	</div>
+
+					</div>
+
+				 <div class="span3">
+					 	<div class="form-group">
+							<label for="">Nombre :</label>
+						 	<input type="text" name="nombre" class="form-group" ng-minlength="3" ng-pattern="/^[a-zA-ZÑñ\s]*$/" placeholder="Nombre" ng-model="trabajador.Nombre" required>
+						 	<span style="color:red" ng-show="nuevoTrabajador.nombre.$dirty && nuevoTrabajador.nombre.$invalid">
+                             <span ng-show="nuevoTrabajador.nombre.$error.required">Nombre Requerido.</span>
+                             <span ng-show="nuevoTrabajdor.nombre.$error.minlength">Nombre demasiado corto</span>
+                             <span ng-show="nuevoTrabajador.nombre.$error.pattern">Ingrese solo letras</span>
+					 	</div>
+				 </div>	
+
+				 <div class="span3">
+					 	<div class="form-group">
+						 	<label for="">Apellido :</label>
+						 	<input type="text" class="form-group" name="apellido" ng-minlength="3" ng-pattern="/^[a-zA-ZÑñ\s]*$/" placeholder="Apellido" ng-model="trabajador.Apellido" required>
+						 	<span style="color:red" ng-show="nuevoTrabajador.apellido.$dirty && nuevoTrabajador.apellido.$invalid">
+                             <span ng-show="nuevoTrabajador.apellido.$error.required">Apellido Requerido.</span>
+                             <span ng-show="nuevoTrabajdor.apellido.$error.minlength">Apellido demasiado corto</span>
+                             <span ng-show="nuevoTrabajador.apellido.$error.pattern">Ingrese solo letras</span>
+
+					 	</div>
+				 </div>
+
+				 <div class="span3">
+					 	<div class="form-group">
+						 	<label for="">Fecha de Nacimiento :</label>
+						 	<input type="text" name="fecha" ng-pattern="/^(0?[1-9]|[12][0-9]|3[01])[\/\-\.](0?[1-9]|1[012])[\/\-\.](\d{4})$/" ng-maxlength="10" class="form-group" placeholder="Dia/Mes/Año" ng-model="trabajador.FechaNacimiento" required>
+						 	<span style="color:red" ng-show="nuevoTrabajador.fecha.$dirty && nuevoTrabajador.fecha.$invalid">
+						 	<span ng-show="nuevoTrabajador.fecha.$error.required">Fecha Requerido.</span>
+						 	<span ng-show="nuevoTrabajador.fecha.$error.pattern"> formato fecha dia/mes/año</span>
+						 	<span ng-show="nuevoTrabajador.fecha.$error.maxlength">Fecha debe contener 10 caraceres maximo</span>
+					 	</div>
+				 </div>
+
+               </div>
+				
+                  <br>
+                 <div class="row">
+				  <div class="span3">
+					 	<div class="form-group">
+						 	<label for="">Telefono :</label>
+						 	<input type="text" name="telefono" class="form-group" ng-minlength="6" ng-pattern="/^[0-9]{2,3}-? ?[0-9]{6,7}$/" placeholder="Telefono" ng-model="trabajador.Telefono" required>
+						 	<span style="color:red" ng-show="nuevoTrabajador.telefono.$dirty && nuevoTrabajador.telefono.$invalid">
+                            <span ng-show="nuevoTrabajador.telefono.$error.required">Telefono Requerido.</span>
+                            <span ng-show="nuevoTrabajador.telefono.$error.minlength">Telefono demasiado corto</span>
+                            <span ng-show="nuevoTrabajador.telefono.$error.pattern">Telefono Invalido</span>
+					 	</div>
+				 </div>
+               </div>
+			     </form>
+
+				 <div>
+
+				 	<button id="btnTrabajador" ng-disabled="!nuevoTrabajador.$valid" class="btn btn-success" ng-click="obtenerDatosTrabajador(trabajador)"><span class="icon-edit icon-white"></span> Agregar</button> 
+			
+				 	<!-- <button class="btn" ng-click="limpiarDatosTrabajador()">Limpiar Campos</button> -->
+
+				 </div>
+            <br>
+            <div id="rut" class="text-center alert  alert-error"> 
+             <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>{{rut}}</strong> 
+            </div>
+
+              <div  id="datosTrabajador" class="alert alert-success">
+                 <button type="button" class="close" data-dismiss="alert"></button>
+                 <h4>Los datos fueron guardados exitosamente</h4>
+               </div>
+			
+
+</div>
+
+<script type="text/javascript">
+$("#rut").hide();
+$("#datosTrabajador").hide();
+$("#btnTrabajador").click(function(){
+$("#btnTrabajador").attr("disabled", "disabled");
+});
+</script>

@@ -1,0 +1,60 @@
+<div class="container"  ng-controller="obtenerIdAlmacenajeControllers" ng-controller="insertarAlmacenajeControllers">
+
+			
+				<form name="nuevoAlmacenaje" role="form-inline" novalidate>
+			
+					<div class="span3">
+
+					 	<div class="form-group">
+					 		<label for="">Cod. Almacenaje : </label>
+					 		<select  name="cod"  ng-model="almacenaje.IdTipoAlmacenaje" required>
+						 	  <option disabled="disabled">Seleccione una opcion</option>
+							  <option ng-repeat="id in IdAlmacenaje">{{id.cod}}</option>
+							</select>
+					 		<span style="color:red" ng-show="nuevoAlmacenaje.cod.$dirty && nuevoAlmacenaje.cod.$invalid">
+				             <span ng-show="nuevoAlmacenaje.cod.$error.required">Codigo Requerido.</span>
+					 	</div>
+
+					</div>
+
+				 <div class="span3">
+					 	<div class="form-group">
+							<label for="">Nombre :</label>
+						 	<input type="text" name="nombre" class="form-group" ng-minlength="3" ng-pattern="/^[a-zA-Z\s]*$/"  placeholder="nombre" ng-model="almacenaje.Nombre" required>
+						 	 <span style="color:red" ng-show="nuevoAlmacenaje.nombre.$dirty && nuevoAlmacenaje.nombre.$invalid">
+                             <span ng-show="nuevoAlmacenaje.nombre.$error.required">Nombre Requerido.</span>
+                             <span ng-show="nuevoAlmacenaje.nombre.$error.minlength">Nombre demasiado corto</span>
+                             <span ng-show="nuevoAlmacenaje.nombre.$error.pattern">Ingrese solo letras</span>
+					 	</div>
+				 </div>	
+
+				</form>	
+
+				<br>
+				<br>
+				<br>
+				<br>
+				 <div>
+
+				 	<button id="btnAlmacenaje" ng-disabled="!nuevoAlmacenaje.$valid" class="btn btn-success" ng-click="obtenerDatosAlmacenaje(almacenaje)"><span class="icon-edit icon-white"></span> Agregar</button> 
+			
+				 	<!-- <button class="btn" ng-click="limpiarDatosAlmacenaje()">Limpiar Campos</button> -->
+
+				 </div>
+				 <br>
+				 <div  id="datosAlmacenaje" class="alert alert-success">
+                 <button type="button" class="close" data-dismiss="alert"></button>
+                 <h4>Los datos fueron guardados exitosamente</h4>
+               </div>
+
+			
+
+</div>
+
+<script type="text/javascript">
+$("#datosAlmacenaje").hide();
+$("#btnAlmacenaje").click(function(){
+$("#btnAlmacenaje").attr("disabled", "disabled");
+});
+
+</script>

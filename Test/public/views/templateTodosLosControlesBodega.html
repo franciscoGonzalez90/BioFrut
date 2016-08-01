@@ -1,0 +1,24 @@
+	<!-- Template del Pale del sistema en donde se cargan los pales y los presenta en una tabla  -->
+	<div class="container" ng-controller="todosLosControlesBodegaControllers">
+
+		<div class="row">
+			
+			<table class="table table-bordered">
+				<tr><td>Codigo Bodega</td><td>Cantidad Pale</td><td>Control de Calidad</td><td>Despacho</td><td>Zona</td><!-- <td>Acciones</td> --></tr>
+				<tr ng-repeat="bodega in todosLosControlesBodegas | filter:searchText">
+					<td>{{bodega.IdControlBodega}}</td>
+					<td>{{bodega.CantidadPale}}</td>
+					<td>{{bodega.IdControl}}</td>
+					<td>{{bodega.IdDespacho}}</td>
+					<td>{{bodega.Nombre}}</td>
+					<!-- <td>
+					<button type="button" class="btn btn-small btn-success"> <span class="icon-edit icon-white"></span> </button>
+					<button type="button" class="btn btn-small btn-success"> <span class="icon-trash icon-white"></span>  </button>
+					
+					</td> -->
+				</tr>
+			</table>
+
+		</div>
+	
+	</div>	

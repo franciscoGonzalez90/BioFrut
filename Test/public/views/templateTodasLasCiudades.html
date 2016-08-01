@@ -1,0 +1,22 @@
+	<!-- Template del las Cuidades del sistema en donde se cargan las ciudades y los presenta en una tabla  -->
+	<div class="container" ng-controller="todasLasCiudadesControllers">
+
+		<div class="row">
+			
+			<table class="table table-bordered">
+				<tr><td>Codigo</td><td>Nombre</td><td>Region</td><!-- <td>Acciones</td> --></tr>
+				<tr ng-repeat="ciudad in todasLasCiudades | filter:searchText">
+					<td>{{ciudad.IdCiudad}}</td>
+					<td>{{ciudad.Nombre}}</td>
+					<td>{{ciudad.Region}}</td>
+					<!-- <td>
+					<button type="button" class="btn btn-small btn-success"> <span class="icon-edit icon-white"></span> </button>
+					<button type="button" class="btn btn-small btn-success"> <span class="icon-trash icon-white"></span>  </button>
+					
+					</td> -->
+				</tr>
+			</table>
+
+		</div>
+	
+	</div>	

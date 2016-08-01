@@ -1,0 +1,23 @@
+	<!-- Template del Tipo Producto del sistema en donde se cargan los tipos de productos y los presenta en una tabla  -->
+	<div class="container" ng-controller="todosLosTproductosControllers">
+
+		<div class="row">
+			
+			<table class="table table-bordered">
+				<tr><td>Codigo</td><td>Nombre</td><td>Estacion Cosecha</td><td>Producto</td><!-- <td>Acciones</td> --></tr>
+				<tr ng-repeat="cargo in todosLosTproductos | filter:searchText">
+					<td>{{cargo.IdTipoProducto}}</td>
+					<td>{{cargo.Nombre}}</td>
+					<td>{{cargo.EstacionCosecha}}</td>
+					<td>{{cargo.IdProducto}}</td>
+					<!-- <td>
+					<button type="button" class="btn btn-small btn-success"> <span class="icon-edit icon-white"></span> </button>
+					<button type="button" class="btn btn-small btn-success"> <span class="icon-trash icon-white"></span>  </button>
+					
+					</td> -->
+				</tr>
+			</table>
+
+		</div>
+	
+	</div>	

@@ -1,0 +1,74 @@
+<div class="container"  ng-controller="obtenerIdCiudadControllers" ng-controller="insertarCiudadControllers">
+
+			
+				<form name="nuevaCiudad" role="form-inline" novalidate>
+		
+					<div class="span3">
+
+					 	<div class="form-group" >
+						 	<label for=""> Cod. Ciudad :</label>
+						 	<select  name="codigo"  ng-model="ciudad.IdCiudad">
+						 	  <option disabled="disabled">Seleccione una opcion</option>
+							  <option ng-repeat="id in IdCiudad">{{id.cod}}</option>
+							</select>
+							 <span style="color:red" ng-show="nuevaCiudad.codigo.$dirty && nuevaCiudad.codigo.$invalid">
+                             <span ng-show="nuevaCiudad.codigo.$error.required">Nombre Requerido.</span>
+                        </div>
+				    </div>
+                    
+                    <div class="span3">
+					 	<div class="form-group">
+							<label for="">Nombre :</label>
+						 	<input type="text" name="nombre" ng-minlength="4" ng-pattern="/^[a-zA-ZÑñ\s]*$/" class="form-group" placeholder="nombre" ng-model="ciudad.Nombre" required>
+						 	  <span style="color:red" ng-show="nuevaCiudad.nombre.$dirty && nuevaCiudad.nombre.$invalid">
+                             <span ng-show="nuevaCiudad.nombre.$error.required">Nombre Requerido.</span>
+                             <span ng-show="nuevaCiudad.nombre.$error.minlength">Nombre demasiado corto</span>
+                             <span ng-show="nuevaCiudad.nombre.$error.pattern">Ingrese solo letras</span>
+					 	</div>
+		            </div>	
+
+				 <div class="span3">
+					 	<div class="form-group">
+						 	<label for=""> Cod. Region :</label>
+						 	<select  name="region" ng-model="ciudad.IdRegion"  ng-controller="obtenerNombreRegionesControllers" required>
+						 		<option disabled="disabled">Seleccione una opcion</option>
+							  	<option  ng-repeat="nombre in nombreRegiones">{{nombre.Nombre}}</option>
+							</select>
+							<span style="color:red" ng-show="nuevaCiudad.region.$dirty && nuevaCiudad.region.$invalid">
+							<span ng-show="nuevaCiudad.region.$error.required">Región Requerida.</span>
+         
+					 	</div>
+				 </div>
+
+
+				</form>	
+
+				<br>
+				<br>
+				<br>
+				<br>
+
+				 <div>
+			           <button id="btnCiudad" ng-disabled="!nuevaCiudad.$valid"  class="btn btn-success" ng-click="obtenerDatosCiudad(ciudad)"><span class="icon-edit icon-white"></span> Agregar</button> 
+	
+				 	   <!-- <button class="btn" ng-click="limpiarDatosCiudad()">Limpiar Campos</button> -->
+				 </div>
+                 
+                 <br>
+         
+             <div  id="datosCiudad" class="alert alert-success">
+                 <button type="button" class="close" data-dismiss="alert"></button>
+                 <h4>Los datos fueron guardados exitosamente</h4>
+             </div>
+			
+
+</div>
+
+<script type="text/javascript">
+$("#datosCiudad").hide();
+$("#btnCiudad").click(function() {
+$("#btnCiudad").attr("disabled", "disabled");
+});
+
+
+</script>

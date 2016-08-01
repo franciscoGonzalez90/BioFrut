@@ -1,0 +1,89 @@
+<div class="container" ng-controller="obtenerIdCargoControllers" ng-controller="insertarCargoControllers">
+
+			
+				<form name="nuevoCargo" role="form-inline" novalidate>
+			
+					<div class="span3">
+
+					 	<div class="form-group">
+					 		<label for="">Cod. Cargo:</label>
+					 		<select  name="codigo"  ng-model="cargo.IdCargo" required>
+						       <option disabled="disabled">Seleccione una opcion</option>
+						       <option ng-repeat="id in IdCargo">{{id.cod}}</option>
+				            </select>
+					 		<span style="color:red" ng-show="nuevoCargo.cod.$dirty && nuevoCargo.cod.$invalid">
+				            <span ng-show="nuevoCargo.cod.$error.required">Codigo Requerido.</span>
+				            <span ng-show="nuevoCargo.cod.$error.pattern">Codigo Invalido.</span>
+					 	</div>
+
+					</div>
+
+				 <div class="span3">
+					 	<div class="form-group">
+							<label for="">Nombre :</label>
+						 	<input type="text"  name="nombre" class="form-group" ng-minlength="3" ng-pattern="/^[a-zA-ZÑñ\s]*$/" placeholder="nombre" ng-model="cargo.Nombre" required>
+						 	<span style="color:red" ng-show="nuevoCargo.nombre.$dirty && nuevoCargo.nombre.$invalid">
+                             <span ng-show="nuevoCargo.nombre.$error.required">Nombre Requerido.</span>
+                             <span ng-show="nuevoCargo.nombre.$error.minlength">Nombre demasiado corto</span>
+                             <span ng-show="nuevoCargo.nombre.$error.pattern">Ingrese solo letras</span>
+					 	</div>
+				 </div>	
+
+				 <div class="span3">
+					 	<div class="form-group">
+						 	<label for="">Area :</label>
+						 	<input type="text" name="area" class="form-group" ng-minlength="3" ng-pattern="/^[a-zA-ZÑñ\s]*$/" placeholder="area" ng-model="cargo.Area" required>
+						 	<span style="color:red" ng-show="nuevoCargo.area.$dirty && nuevoCargo.area.$invalid">
+                             <span ng-show="nuevoCargo.area.$error.required">Nombre Requerido.</span>
+                             <span ng-show="nuevoCargo.area.$error.minlength">Nombre demasiado corto</span>
+                             <span ng-show="nuevoCargo.area.$error.pattern">Ingrese solo letras</span>
+					 	</div>
+				 </div>
+
+				 <div class="span3">
+					 	<div class="form-group">
+						 	<label for="">Descripcion :</label>
+						 	<input type="text" name="descripcion" class="form-group" ng-minlength="20" ng-pattern="/^[a-zA-ZÑñ\s]*$/"placeholder="descripcion" ng-model="cargo.Descripcion" required>
+						 	<span style="color:red" ng-show="nuevoCargo.descripcion.$dirty && nuevoCargo.descripcion.$invalid">
+                             <span ng-show="nuevoCargo.descripcion.$error.required">Nombre Requerido.</span>
+                             <span ng-show="nuevoCargo.descripcion.$error.minlength">Nombre demasiado corto</span>
+                             <span ng-show="nuevoCargo.descripcion.$error.pattern">Ingrese solo letras</span>
+					 	</div>
+				 </div>
+
+				</form>	
+
+				<br>
+				<br>
+				<br>
+				<br>
+				 <div>
+
+				 	<button id="btnCargo" ng-disabled="!nuevoCargo.$valid" class="btn btn-success" ng-click="obtenerDatosCargo(cargo)"><span class="icon-edit icon-white"></span> Agregar</button> 
+			
+				 	<!-- <button class="btn" ng-click="limpiarDatosCargo()">Limpiar Campos</button> -->
+
+				 </div>
+                  
+                  <br>
+                 <div id="cargo" class="alert alert-error">
+                  <button type="button" class="close" data-dismiss="alert"></button>
+                  <strong>{{idCargo}}</strong>
+                 </div>
+
+                <div  id="datosCargo" class="alert alert-success">
+                 <button type="button" class="close" data-dismiss="alert"></button>
+                 <h4>Los datos fueron guardados exitosamente</h4>
+               </div>
+
+			
+
+</div>
+
+<script type="text/javascript">
+$('#cargo').hide();
+$("#datosCargo").hide();
+$("#btnCargo").click(function(){
+$("#btnCargo").attr("disabled", "disabled");
+});
+</script>

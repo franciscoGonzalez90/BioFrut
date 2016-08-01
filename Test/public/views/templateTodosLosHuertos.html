@@ -1,0 +1,22 @@
+	<!-- Template del Huerto del sistema en donde se cargan los huertos y los presenta en una tabla  -->
+	<div class="container" ng-controller="todosLosHuertosControllers">
+
+		<div class="row">
+			
+			<table class="table table-bordered">
+				<tr><td>Codigo</td><td>Nombre</td><td>Predio</td><!-- <td>Acciones</td> --></tr>
+				<tr ng-repeat="huerto in todosLosHuertos | filter:searchText">
+					<td>{{huerto.IdHuerto}}</td>
+					<td>{{huerto.Nombre}}</td>
+					<td>{{huerto.Predio}}</td>
+					<!-- <td>
+					<button type="button" class="btn btn-small btn-success"> <span class="icon-edit icon-white"></span> </button>
+					<button type="button" class="btn btn-small btn-success"> <span class="icon-trash icon-white"></span>  </button>
+				
+					</td> -->
+				</tr>
+			</table>
+
+		</div>
+	
+	</div>	

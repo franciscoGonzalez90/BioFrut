@@ -1,0 +1,23 @@
+	<!-- Template del Cargo del sistema en donde se cargan los cargos y los presenta en una tabla  -->
+	<div class="container" ng-controller="todosLosCargosControllers">
+
+		<div class="row">
+			
+			<table class="table table-bordered">
+				<tr><td>Codigo</td><td>Nombre</td><td>Area</td><td>Descripción</td><!-- <td>Acciones</td> --></tr>
+				<tr ng-repeat="cargo in todosLosCargos | filter:searchText">
+					<td>{{cargo.IdCargo}}</td>
+					<td>{{cargo.Nombre}}</td>
+					<td>{{cargo.Area}}</td>
+					<td>{{cargo.Descripcion}}</td>
+					<!-- <td>
+					<button type="button" class="btn btn-small btn-success"> <span class="icon-edit icon-white"></span> </button>
+					<button type="button" class="btn btn-small btn-success"> <span class="icon-trash icon-white"></span>  </button>
+					
+					</td> -->
+				</tr>
+			</table>
+
+		</div>
+	
+	</div>	

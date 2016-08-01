@@ -1,0 +1,24 @@
+	<!-- Template del Control del sistema en donde se cargan los controles y los presenta en una tabla  -->
+	<div class="container" ng-controller="todosLosControlesControllers">
+
+		<div class="row">
+			
+			<table class="table table-bordered">
+				<tr><td>Codigo</td><td>Fecha</td><td>Hora</td><td>Calificacion</td><td>Estado del Producto</td><!-- <td>Acciones</td> --></tr>
+				<tr ng-repeat="control in todosLosControles | filter:searchText">
+					<td>{{control.IdControl}}</td>
+					<td>{{control.Fecha}}</td>
+					<td>{{control.Hora}}</td>
+					<td>{{control.Nota}}</td>
+					<td>{{control.Nombre}}</td>
+					<!-- <td>
+					<button type="button" class="btn btn-small btn-success"> <span class="icon-edit icon-white"></span> </button>
+					<button type="button" class="btn btn-small btn-success"> <span class="icon-trash icon-white"></span>  </button>
+				
+					</td> -->
+				</tr>
+			</table>
+
+		</div>
+	
+	</div>	

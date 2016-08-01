@@ -1,0 +1,22 @@
+	<!-- Template del la Region del sistema en donde se cargan las regiones y los presenta en una tabla  -->
+	<div class="container" ng-controller="todasLasRegionesControllers">
+
+		<div class="row">
+			
+			<table class="table table-bordered">
+				<tr><td>Codigo</td><td>Nombre</td><td>Pais</td><!-- <td>Acciones</td> --></tr>
+				<tr ng-repeat=" region in todasLasRegiones | filter:searchText">
+					<td>{{region.IdRegion}}</td>
+					<td>{{region.Nombre}}</td>
+					<td>{{region.Pais}}</td>
+					<!-- <td>
+					<button type="button" class="btn btn-small btn-success"> <span class="icon-edit icon-white"></span> </button>
+					<button type="button" class="btn btn-small btn-success"> <span class="icon-trash icon-white"></span>  </button>
+			
+					</td> -->
+				</tr>
+			</table>
+
+		</div>
+	
+	</div>	

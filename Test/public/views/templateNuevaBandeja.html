@@ -1,0 +1,105 @@
+<div class="container"  ng-controller="obtenerIdBandejaControllers" ng-controller="insertarBandejaControllers">
+
+		
+
+				<form  name="nuevaBandeja" role="form-inline" novalidate>
+			     
+			       <div class="span3">
+
+					 	<div class="form-group" >
+						 	<label for=""> Cod. Bandeja :</label>
+						 	<select  name="codigo"  ng-model="bandeja.IdBandeja" required>
+						 	  <option disabled="disabled">Seleccione una opcion</option>
+							  <option ng-repeat="id in IdBandeja">{{id.cod}}</option>
+							</select>
+							 <span style="color:red" ng-show="nuevaBandeja.codigo.$dirty && nuevaBandeja.codigo.$invalid">
+                             <span ng-show="nuevaBandeja.codigo.$error.required">(*)</span>
+                        </div>
+				    </div>
+                    
+					<div class="span3">
+
+					 	<div class="form-group">
+					 		<label for="">N° Bandejas : </label>
+					 		<input  name="nbandeja" type="number" class="form-control" placeholder="cantidad" ng-model="bandeja.NumeroBandeja" required>
+					 		 <span style="color:red" ng-show="nuevaBandeja.nbandeja.$dirty && nuevaBandeja.nbandeja.$invalid">
+				             <span ng-show="nuevaBandeja.nbandeja.$error.required">(*)</span>
+					 	</div>
+
+					</div>
+					
+				      <div class="span3">
+					 	<div class="form-group">
+						 	<label for="">Tarjeta de Identificacion:</label>
+						 	<select name="tarjeta" ng-model="bandeja.IdTarjeta"  ng-controller="obtenerNombreTarjetasControllers" required >
+						 		<option disabled="disabled">Seleccione una opcion</option>
+							  	<option  ng-repeat="nombre in nombreTarjetas">{{nombre.IdTarjeta}}</option>
+							</select>
+							<span style="color:red" ng-show="nuevaBandeja.tarjeta.$dirty && nuevaBandeja.tarjeta.$invalid">
+				            <span ng-show="nuevaBandeja.tarjeta.$error.required">(*)</span>
+					 	</div>
+				      </div>
+
+				  	  <div class="span3">
+					 	<div class="form-group">
+						 	<label for="">Tipo de Producto :</label>
+						 	<select name="producto" ng-model="bandeja.IdTipoProducto"  ng-controller="obtenerNombreTproductoControllers" required>
+						 		<option disabled="disabled">Seleccione una opcion</option>
+							  	<option  ng-repeat="nombre in nombreTproducto">{{nombre.Nombre}}</option>
+							</select>
+							<span style="color:red" ng-show="nuevaBandeja.producto.$dirty && nuevaBandeja.producto.$invalid">
+				            <span ng-show="nuevaBandeja.producto.$error.required">(*)</span>
+					 	</div>
+				 </div>
+				</form>	
+				<br>
+				<br>
+				<br>
+				<br>
+				 <div>
+				 	
+				 	<button id="btnBandeja" ng-disabled="!nuevaBandeja.$valid" class="btn btn-success"  ng-click="obtenerDatosBandeja(bandeja)"><span class="icon-edit icon-white"></span> Agregar</button> 
+				 	<!-- <button class="btn" ng-click="limpiarDatosBandeja()">Limpiar Campos</button> -->
+				   </div>
+
+				 <br><br>
+				
+            
+               <div id="numero" class="alert alert-error">
+                  <button type="button" class="close" data-dismiss="alert"></button>
+                  <strong>{{numero}}</strong>
+               </div>
+			    
+			   <div id="tarjeta" class="alert alert-error">
+                  <button type="button" class="close" data-dismiss="alert"></button>
+                  <strong>{{tarjeta}}</strong>
+               </div>
+
+                <div id="producto" class="alert alert-error">
+                  <button type="button" class="close" data-dismiss="alert"></button>
+                  <strong>{{producto}}</strong>
+               </div>
+
+                <div id="codigo" class="alert alert-error">
+                  <button type="button" class="close" data-dismiss="alert"></button>
+                  <strong>{{codigo}}</strong>
+               </div>
+
+                <div  id="datosBandeja" class="alert alert-success">
+                 <button type="button" class="close" data-dismiss="alert"></button>
+                 <h4>Los datos fueron guardados exitosamente</h4>
+               </div>
+
+  
+</div>
+
+<script type="text/javascript">
+$('#numero').hide();
+$('#tarjeta').hide();
+$('#producto').hide();
+$('#codigo').hide();
+$("#datosBandeja").hide();
+$("#btnBandeja").click(function(){
+$("#btnBandeja").attr("disabled", "disabled");
+});
+</script>

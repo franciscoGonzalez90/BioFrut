@@ -1,0 +1,114 @@
+<div class="container" ng-controller="obtenerIdUsuarioControllers" ng-controller="insertarUsuarioControllers">
+     
+
+			
+		<form name="nuevoUsuario"  role="form-inline" novalidate >
+		  <div class="row">
+			<div class="span3">
+
+				<div class="form-group">
+				  <label for="">Cod. Usuario : </label>
+				    <select  name="codigo"  ng-model="usuario.IdUsuario" required>
+						<option disabled="disabled">Seleccione una opcion</option>
+						<option ng-repeat="id in IdUsuario">{{id.cod}}</option>
+				    </select>
+				  <span style="color:red" ng-show="nuevoUsuario.cod.$dirty && nuevoUsuario.cod.$invalid">
+				  <span ng-show="nuevoUsuario.cod.$error.required">Codigo Invalido.</span>
+
+				</div>
+
+			</div>
+
+				<div class="span3">
+
+				<div class="form-group">
+				  <label for="">Nombre :</label>
+				  <input name="nombre" type="text" ng-minlength="3"  ng-pattern="/^[a-zA-ZñÑ\s]*$/" class="form-control" placeholder="nombre" ng-model="usuario.Nombre" required>
+				  <span style="color:red" ng-show="nuevoUsuario.nombre.$dirty && nuevoUsuario.nombre.$invalid">
+                  <span ng-show="nuevoUsuario.nombre.$error.required">Nombre Invalido.</span>
+                  <span ng-show="nuevoUsuario.nombre.$error.minlength">Nombre debe contener minimo 3 caracteres</span>
+                  <span ng-show="nuevoUsuario.nombre.$error.pattern">Ingrese solo letras</span>
+                   
+                </div>
+		    </div>
+
+
+			<div class="span3">
+
+				<div class="form-group">
+				  <label for="">Apellido :</label>
+				  <input  name="apellido" type="text" ng-minlength="4" ng-pattern="/^[a-zA-ZñÑ\s]*$/" class="form-control" placeholder="apellido" ng-model="usuario.Apellido" required> 
+				  <span style="color:red" ng-show="nuevoUsuario.apellido.$dirty && nuevoUsuario.apellido.$invalid">
+                  <span ng-show="nuevoUsuario.apellido.$error.required">Apellido Invalido.</span>
+                  <span ng-show="nuevoUsuario.apellido.$error.minlength">Apellido debe contener minimo 4 caracteres</span>
+                  <span ng-show="nuevoUsuario.apellido.$error.pattern">Ingrese solo letras</span>
+				</div>
+			</div>
+
+			<div class="span3">
+
+				<div class="form-group">
+				   <label for="">Perfil :</label>
+				    <select class="form-control" name="perfil"  ng-model="usuario.IdPerfil"  ng-controller="obtenerNombrePerfilesControllers" required>
+				      <option disabled="disabled">Seleccione una opcion</option>
+				      <option  ng-repeat="nombre in nombrePerfiles">{{nombre.Login}}</option>
+				    </select>
+				    <span style="color:red" ng-show="nuevoUsuario.perfil.$dirty && nuevoUsuario.perfil.$invalid">
+				    <span ng-show="nuevoUsuario.perfil.$error.required">Perfil Requerido.</span>
+				</div>
+			</div>
+		</div>
+			
+				<div class="row">
+					<div class="span3">
+					 	<div class="form-group">
+						 	<label for="">Cargo :</label>
+						 	<select  class="form-control"  name="cargo" ng-model="usuario.IdCargo"  ng-controller="obtenerNombreCargosControllers" required>
+						 	  <option disabled="disabled">Seleccione una opcion</option>
+							  <option  ng-repeat="nombre in nombreCargos">{{nombre.Nombre}}</option>
+							</select>
+							<span style="color:red" ng-show="nuevoUsuario.cargo.$dirty && nuevoUsuario.cargo.$invalid">
+                            <span ng-show="nuevoUsuario.cargo.$error.required">Cargo Requerido.</span>
+					 	</div>
+				    </div>
+ 			     </div>
+ 			     
+ 			      </form>
+				<br>
+				<br>
+				<div>
+
+				 <button  ng-disabled="!nuevoUsuario.$valid" class="btn btn-success" ng-click="obtenerDatosUsuario(usuario)"><span class="icon-edit icon-white"></span> Agregar</button> 
+			
+				 <!-- <button class="btn"  ng-click="limpiarDatosUsuario()">Limpiar Campos</button> -->
+				  <br>
+                  <br>
+				</div>
+
+				 <div id="usuario" class="alert alert-error">
+                  <button type="button" class="close" data-dismiss="alert"></button>
+                  <strong>{{idusuario}}</strong>
+               </div>
+
+                <div id="perfil" class="alert alert-error">
+                  <button type="button" class="close" data-dismiss="alert"></button>
+                  <strong>{{perfil}}</strong>
+               </div>
+
+                <div id="cargo" class="alert alert-error">
+                  <button type="button" class="close" data-dismiss="alert"></button>
+                  <strong>{{cargo}}</strong>
+               </div>
+ 
+</div>
+
+<script type="text/javascript">
+$('#usuario').hide();
+$('#perfil').hide();
+$('#cargo').hide();
+
+</script>
+
+
+
+

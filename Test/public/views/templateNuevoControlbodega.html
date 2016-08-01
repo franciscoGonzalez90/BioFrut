@@ -1,0 +1,130 @@
+<div class="container" ng-controller="obtenerIdControlBodegaControllers"  ng-controller="insertarControlBodegaControllers">
+
+			
+				<form  name="nuevoControlBodega" role="form-inline" novalidate>
+			     <div class="row">
+					<div class="span3">
+
+					 	<div class="form-group">
+					 		<label for="">Cod. Control de Bodega : </label>
+					 		<select  name="codigo"  ng-model="controlbodega.IdControlBodega" required>
+						       <option disabled="disabled">Seleccione una opcion</option>
+						       <option ng-repeat="id in IdControlBodega">{{id.cod}}</option>
+				            </select>
+					 		<span style="color:red" ng-show="nuevoControlBodega.codigo.$dirty && nuevoControlBodega.codigo.$invalid">
+				             <span ng-show="nuevoControlBodega.codigo.$error.required">Codigo Invalido.</span>
+				             <span ng-show="nuevoControlBodega.codigo.$error.pattern">Codigo Invalido.</span>
+					 	</div>
+
+					</div>
+
+				 <div class="span3">
+					 	<div class="form-group">
+							<label for="">Cantidad de Pale :</label>
+						 	<input type="text" name="pale" class="form-group" ng-pattern="/[0-9]/" ng-maxlength="4" placeholder="pale" ng-model="controlbodega.CantidadPale" required>
+						 	 <span style="color:red" ng-show="nuevoControlBodega.pale.$dirty && nuevoControlBodega.pale.$invalid">
+				             <span ng-show="nuevoControlBodega.pale.$error.required">Cantidad de Pales Invalida.</span>
+				             <span ng-show="nuevoControlBodega.pale.$error.maxlength">Cantidad demasiado grande.</span>
+				             <span ng-show="nuevoControlBodega.pale.$error.pattern">Ingrese solo numeros</span>
+					 	</div>
+				 </div>	
+
+				 <div class="span3">
+					 	<div class="form-group">
+						 	<label for="">Cod. Control de Calidad :</label>
+						 	<select  name="control" ng-model="controlbodega.IdControl"  ng-controller="obtenerNombreControlesControllers" required>
+						 		<option disabled="disabled">Seleccione una opcion</option>
+							  	<option  ng-repeat="nombre in nombreControles">{{nombre.IdControl}}</option>
+							</select>
+							 <span style="color:red" ng-show="nuevoControlBodega.control.$dirty && nuevoControlBodega.control.$invalid">
+				             <span ng-show="nuevoControlBodega.control.$error.required">Calificación Invalido.</span>
+					 	</div>
+				 </div>
+
+
+				  <div class="span3">
+					 	<div class="form-group">
+						 	<label for="">Cod. Despacho :</label>
+						 	<select name="despacho" ng-model="controlbodega.IdDespacho"  ng-controller="obtenerNombreDespachosControllers"  required>
+						 		<option disabled="disabled">Seleccione una opcion</option>
+							  	<option  ng-repeat="nombre in nombreDespachos">{{nombre.IdDespacho}}</option>
+							</select>
+							 <span style="color:red" ng-show="nuevoControlBodega.despacho.$dirty && nuevoControlBodega.despacho.$invalid">
+				             <span ng-show="nuevoControlBodega.despacho.$error.required">Calificación Invalido.</span>
+					 	</div>
+				 </div>
+              </div>
+	            <br>
+
+               <div class="row">
+				 <div class="span3">
+					 	<div class="form-group">
+						 	<label for="">Cod. Zona :</label>
+						 	<select name="zona" ng-model="controlbodega.IdZona"  ng-controller="obtenerNombreZonasControllers" required>
+						 		<option disabled="disabled">Seleccione una opcion</option>
+							  	<option  ng-repeat="nombre in nombreZonas">{{nombre.Nombre}}</option>
+							</select>
+							 <span style="color:red" ng-show="nuevoControlBodega.zona.$dirty && nuevoControlBodega.zona.$invalid">
+				             <span ng-show="nuevoControlBodega.zona.$error.required">Calificación Invalido.</span>
+					 	</div>
+				 </div>
+              </div>
+
+				</form>	
+
+				<br>
+				 <div>
+
+				 	<button id="btnControlBodega" ng-disabled="!nuevoControlBodega.$valid" class="btn btn-success" ng-click="obtenerDatosControlBodega(controlbodega)"><span class="icon-edit icon-white"></span> Agregar</button> 
+			
+				 	<!-- <button class="btn" ng-click="limpiarDatosControlBodega()">Limpiar Campos</button> -->
+
+				 </div>
+                  
+                  <br>
+
+                <div id="controlbodega2" class="alert alert-error">
+                  <button type="button" class="close" data-dismiss="alert"></button>
+                  <strong>{{control}}</strong>
+               </div>
+
+                <div id="pale2" class="alert alert-error">
+                  <button type="button" class="close" data-dismiss="alert"></button>
+                  <strong>{{cantidad}}</strong>
+               </div>
+
+                <div id="calidad2" class="alert alert-error">
+                  <button type="button" class="close" data-dismiss="alert"></button>
+                  <strong>{{calidad}}</strong>
+               </div>
+
+                <div id="despacho2" class="alert alert-error">
+                  <button type="button" class="close" data-dismiss="alert"></button>
+                  <strong>{{despacho}}</strong>
+               </div>
+
+                <div id="zona2" class="alert alert-error">
+                  <button type="button" class="close" data-dismiss="alert"></button>
+                  <strong>{{zona}}</strong>
+               </div>
+
+                <div  id="datosControlBodega" class="alert alert-success">
+                 <button type="button" class="close" data-dismiss="alert"></button>
+                 <h4>Los datos fueron guardados exitosamente</h4>
+               </div>
+
+               
+</div>
+
+<script type="text/javascript">
+$("#controlbodega2").hide();
+$("#pale2").hide();
+$("#calidad2").hide();
+$("#despacho2").hide();
+$("#zona2").hide();
+$("#datosControlBodega").hide();
+
+$("#btnControlBodega").click(function(){
+$("#btnControlBodega").attr("disabled", "disabled");
+});
+</script>

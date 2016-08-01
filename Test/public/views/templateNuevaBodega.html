@@ -1,0 +1,107 @@
+<div class="container" ng-controller="obtenerIdBodegaControllers"  ng-controller="insertarBodegaControllers">
+
+			
+				<form name="nuevaBodega" role="form-inline" novalidate>
+			
+					<div class="span3">
+
+					 	<div class="form-group">
+					 		<label for="">Cod. Bodega : </label>
+					 	       <select  name="codigo"  ng-model="bodega.IdBodega" required>
+						 	     <option disabled="disabled">Seleccione una opcion</option>
+							     <option ng-repeat="id in IdBodega">{{id.cod}}</option>
+							   </select>
+					 		 <span style="color:red" ng-show="nuevaBodega.codigo.$dirty && nuevaBodega.codigo.$invalid">
+				             <span ng-show="nuevaBodega.codigo.$error.required">(*)</span>
+					 	</div>
+
+					</div>
+
+				 <div class="span3">
+					 	<div class="form-group">
+							<label for="">Nombre :</label>
+						 	<input type="text"  name="nombre" ng-minlength="3" ng-pattern="/^[a-zA-Z\s]*$/" class="form-group" placeholder="nombre" ng-model="bodega.Nombre" required>
+						 	  <span style="color:red" ng-show="nuevaBodega.nombre.$dirty && nuevaBodega.nombre.$invalid">
+                             <span ng-show="nuevaBodega.nombre.$error.required">(*)</span>
+                             <span ng-show="nuevaBodega.nombre.$error.minlength">Nombre debe contener minimo 3 caracteres</span>
+                             <span ng-show="nuevaBodega.nombre.$error.pattern">Ingrese caracteres alfabeticos</span>
+
+					 	</div>
+				 </div>	
+
+				 <div class="span3">
+					 	<div class="form-group">
+						 	<label for="">Direccion :</label>
+						 	<input type="text" name="direc" ng-minlength="4" class="form-group" placeholder="direccion" ng-model="bodega.Direccion" required>
+						 	<span style="color:red" ng-show="nevaBodega.direc.$dirty && nuevaBodega.direc.$invalid">
+                            <span ng-show="nuevaBodega.direc.$error.required">(*)</span>
+                            <span ng-show="nuevaBodega.direc.$error.minlength">Dirección debe contener minimo 4 caracteres</span>
+					 	</div>
+				 </div>
+
+				 <div class="span3">
+					 	<div class="form-group">
+						 	<label for="">Telefono :</label>
+						 	<input type="text" name="telefono" ng-minlength="6" ng-pattern="/^[0-9]{2,3}-? ?[0-9]{6,7}$/" class="form-group" placeholder="telefono" ng-model="bodega.Telefono" required>
+						 	<span style="color:red" ng-show="nuevaBodega.telefono.$dirty && nuevaBodega.telefono.$invalid">
+                            <span ng-show="nuevaBodega.telefono.$error.required">(*)</span>
+                            <span ng-show="nuevaBodega.telefono.$error.minlength">Telefono debe contener minimo 6 numeros</span>
+                            <span ng-show="nuevaBodega.telefono.$error.pattern">Telefono Invalido</span>
+					 	</div>
+				 </div>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+				  <div>
+					 	<div class="form-group">
+						 	<label for="">Ciudad :</label>
+						 	<select  name="ciudad" ng-model="bodega.IdCiudad"  ng-controller="obtenerNombreCiudadesControllers" required>
+						 		<option disabled="disabled">Seleccione una opcion</option>
+							  	<option  ng-repeat="nombre in nombreCiudades">{{nombre.Nombre}}</option>
+							</select>
+							   <span style="color:red" ng-show="nuevaBodega.ciudad.$dirty && nuevaBodega.ciudad.$invalid">
+							   <span ng-show="nuevaBodega.ciudad.$error.required">(*)</span>
+         
+					 	</div>
+				 </div>
+
+				</form>	
+
+				<br>
+				 <div>
+
+				 	<button id="btnBodega" ng-disabled="!nuevaBodega.$valid" class="btn btn-success" ng-click="obtenerDatosBodega(bodega)"><span class="icon-edit icon-white"></span> Agregar</button> 
+			
+				 	<!-- <button class="btn" ng-click="limpiarDatosBodega()">Limpiar Campos</button> -->
+
+				 </div>
+
+				 <br>
+                 
+                <div id="codbodega" class="alert alert-error">
+                  <button type="button" class="close" data-dismiss="alert"></button>
+                  <strong>{{idbodega}}</strong>
+                </div>
+			    
+			     <div id="codciudad" class="alert alert-error">
+                  <button type="button" class="close" data-dismiss="alert"></button>
+                  <strong>{{idciudad}}</strong>
+                </div>
+                 
+                 <div  id="datosBodega" class="alert alert-success">
+                 <button type="button" class="close" data-dismiss="alert"></button>
+                 <h4>Los datos fueron guardados exitosamente</h4>
+               </div>
+
+</div>
+
+<script type="text/javascript">
+$('#codbodega').hide();
+$('#codciudad').hide();
+$('#datosBodega').hide();
+$("#btnBodega").click(function(){
+$("#btnBodega").attr("disabled", "disabled");
+});
+</script>

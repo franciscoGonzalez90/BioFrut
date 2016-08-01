@@ -1,0 +1,125 @@
+<div class="container" ng-controller="obtenerIdDespachoControllers" ng-controller="insertarDespachoControllers">
+
+			
+		<form  name="nuevoDespacho" role="form-inline" novalidate>
+
+			<div class="row">
+
+				<div class="span3">
+
+					<div class="form-group">
+					 	<label for="">Cod. Despacho: </label>
+					 		<select  name="cod"  ng-model="despacho.IdDespacho" required>
+						 	  <option disabled="disabled">Seleccione una opcion</option>
+							  <option ng-repeat="id in IdDespacho">{{id.cod}}</option>
+							</select>
+					 	<span style="color:red" ng-show="nuevoDespacho.cod.$dirty && nuevoDespacho.cod.$invalid">
+			            <span ng-show="nuevoDespacho.cod.$error.required">Codigo Invalido.</span>
+					</div>
+				</div>
+                     
+
+				<div class="span3">
+					<div class="form-group">
+						<label for="">Cantidad Pale :</label>
+						    <input type="text" name="pale" ng-maxlength="3" ng-pattern="/[0-9]/" class="form-group" placeholder="cantidad pale" ng-model="despacho.CantidadPale" required>
+						 <span style="color:red" ng-show="nuevoDespacho.pale.$dirty && nuevoDespacho.pale.$invalid">
+						 <span ng-show="nuevoDespacho.pale.$error.pattern">Ingrese solo Numeros</span>
+				         <span ng-show="nuevoDespacho.pale.$error.required">Codigo Invalido.</span>
+				         <span ng-show="nuevoDespacho.pale.$error.maxlength">Debe contener maximo 3 caracteres</span>
+					</div>
+				</div>
+					<div class="span3">
+					<div class="form-group">
+						<label for="">Tipo de producto:</label>
+						 	 <select  name="producto" ng-model="despacho.IdTipoProducto"  ng-controller="obtenerNombreTproductoControllers" required>
+						 		<option disabled="disabled">Seleccione una opcion</option>
+							  	<option  ng-repeat="nombre in nombreTproducto">{{nombre.Nombre}}</option>
+							 </select>
+					    <span style="color:red" ng-show="nuevoDespacho.producto.$dirty && nuevoDespacho.producto.$invalid">
+						<span ng-show="nuevoDespacho.producto.$error.required">Tipo Producto Requerido.</span>
+					</div>
+				</div>
+
+				<div class="span3">
+					<div class="form-group">
+						<label for="">Cod. Control :</label>
+						 	 <select name="control" ng-model="despacho.IdControl"  ng-controller="obtenerNombreControlesControllers" required>
+						 		<option disabled="disabled">Seleccione una opcion</option>
+							  	<option  ng-repeat="control in nombreControles">{{control.IdControl}}</option>
+							 </select>
+					    <span style="color:red" ng-show="nuevoDespacho.control.$dirty && nuevoDespacho.control.$invalid">
+						<span ng-show="nuevoDespacho.control.$error.required">Control Calidad Requerido.</span>
+					</div>
+				</div>
+
+            </div>
+           
+
+            <div class="row">
+             
+
+				<div class="span3">
+					<div class="form-group">
+						<label for="">Cuadrilla :</label>
+						 	 <select  name="cuadrilla" ng-model="despacho.IdCuadrilla"  ng-controller="obtenerNombreCuadrillasControllers" required>
+						 		<option disabled="disabled">Seleccione una opcion</option>
+							  	<option  ng-repeat="cuadrilla in nombreCuadrillas">{{cuadrilla.Nombre}}</option>
+							 </select>
+						<span style="color:red" ng-show="nuevoDespacho.cuadrilla.$dirty && nuevoDespacho.cuadrilla.$invalid">
+						<span ng-show="nuevoDespacho.cuadrilla.$error.required">Cuarilla Requerida.</span>
+					</div>
+				</div>
+            </div>
+			
+        </form>
+				<br>
+	            
+	            <div>
+				 	<button ng-disabled="!nuevoDespacho.$valid" class="btn btn-success" ng-click="obtenerDatosDespacho(despacho)"><span class="icon-edit icon-white"></span> Agregar</button> 
+				 	<!-- <button class="btn" ng-click="limpiarDatosDespacho()">Limpiar Campos</button> -->
+
+				 </div>
+				 <br>
+				 <br>
+				 
+				<div id="despacho2" class="text-center alert  alert-error"> 
+                  <button  type="button" class="close" data-dismiss="alert"></button> 
+                  <strong>{{iddespacho}}</strong>   
+                </div>
+
+                <div id="cantidad2" class="text-center alert  alert-error"> 
+                  <button  type="button" class="close" data-dismiss="alert"></button> 
+                  <strong>{{cantidad}}</strong>   
+                </div>
+
+                <div id="producto2" class="text-center alert  alert-error"> 
+                  <button  type="button" class="close" data-dismiss="alert"></button> 
+                  <strong>{{producto}}</strong>   
+                </div>
+
+                <div id="control2" class="text-center alert  alert-error"> 
+                  <button  type="button" class="close" data-dismiss="alert"></button> 
+                  <strong>{{control}}</strong>   
+                </div>
+
+                <div id="cuadrilla2" class="text-center alert  alert-error"> 
+                  <button  type="button" class="close" data-dismiss="alert"></button> 
+                  <strong>{{Cuadrilla}}</strong>   
+                </div>
+
+                <div  id="datosDespacho" class="alert alert-success">
+                 <button type="button" class="close" data-dismiss="alert"></button>
+                 <h4>Los datos fueron guardados exitosamente</h4>
+               </div>
+</div>
+
+
+<script type="text/javascript">
+$("#despacho2").hide();
+$("#cantidad2").hide();
+$("#producto2").hide();
+$("#control2").hide();
+$("#cuadrilla2").hide();
+$("#datosDespacho").hide();
+</script>

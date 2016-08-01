@@ -1,0 +1,24 @@
+	<!-- Template del la Bandeja del sistema en donde se cargan las bandejas y los presenta en una tabla  -->
+	<div class="container" ng-controller="todasLasBandejasControllers">
+
+		<div class="row">
+			
+			<table class="table table-bordered">
+				<tr><td>N° Bandejas</td><td>Fecha</td><td>Hora</td><td>Trabajador</td><td>Tipo Producto</td><!-- <td>Acciones</td> --></tr>
+				<tr ng-repeat=" bandeja in todasLasBandejas track by $index | filter:searchText">
+					<td>{{bandeja.NumeroBandeja}}</td>
+					<td>{{bandeja.Fecha}}</td>
+					<td>{{bandeja.Hora}}</td>
+					<td>{{bandeja.IdTarjeta}}</td>
+					<td>{{bandeja.Nombre}}</td>
+					<!-- <td>
+					<button type="button" class="btn btn-small btn-success"> <span class="icon-edit icon-white"></span> </button>
+					<button type="button" class="btn btn-small btn-success"> <span class="icon-trash icon-white"></span>  </button>
+					
+					</td> -->
+				</tr>
+			</table>
+
+		</div>
+	
+	</div>	

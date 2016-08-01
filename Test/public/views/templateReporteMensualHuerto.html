@@ -1,0 +1,70 @@
+<div class="container">
+ <br>
+  
+   <div  class="text-center"><h2>Grafico de Produccion Diaria de las Cuadrillas</h2></div>
+   <div  class="text-center">Ultima Actualizacion: {{ultimaActualizacion}}</div>
+
+  
+   <br>
+   <br>
+   <div class="span4"></div>
+   <div class="span4">
+      <form role="form-inline">
+            <div class="form-group">
+               <label for="">Seleccione el Mes :</label>
+                  <select id="fechas" class="form-group" ng-model="valor">
+                      <!-- <option disabled="disabled">Seleccione una opcion</option> -->
+                      <option  ng-repeat="resp in fechas  track by $index">{{resp}}</option>
+                  </select>
+             
+            </div>
+            <button id="enviar" class="btn btn-primary" ng-click="obtenerDatosMes(valor)">Generar</button>
+      </form>
+             
+                
+    </div>
+   <div class="span4"></div>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <div id="chart1">
+      <!-- grafico diario de cuadrillas -->
+      <div id="chartMensualHuerto" ></div>
+   </div>
+
+  <br>
+  <br>
+  
+
+  
+  <br>
+
+  <div id="chart2">
+      <br>
+
+      <div id="puntaje" class="text-center">
+         <h3>Total de Bandejas Generadas: {{puntaje}}</h3>
+         
+      </div>
+      <br>
+  
+      <br>
+      <br>
+
+    <table class="table table-bordered">
+          <tr><td><h4>Huerto</h4></td><td><H4>Bandejas Recolectadas</H4></td></tr>
+          <tr ng-repeat="bandejas in produccion">
+            <td>{{bandejas.Nombre}}</td>
+            <td>{{bandejas.Bandejas}}</td>
+          </tr>
+    </table>
+
+  </div>
+
+  <br>
+  <br>
+
+  </div>

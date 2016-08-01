@@ -1,0 +1,25 @@
+<html>
+<head>
+	<title>Error</title>
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="text/javascript" src="../js/jquery-2.1.1.js"></script>
+	<script type="text/javascript" src="../js/bootstrap.js"></script>
+
+</head>
+<body>
+<div id="error" class="well text-center jumbotron">
+  <h1>Error! 401 acceso no Autorizado...</h1>
+  <h3 id="mensaje"></h3>
+  <!-- <p><a class="btn btn-primary btn-large" onClick="redireccionar()" role="button">Volver</a></p> -->
+</div>
+</body>
+ <script type="text/javascript">
+  	function redireccionar(){
+  		location.href="/"
+  	}
+  	$("#mensaje").html("Redireccionando...");
+  	setTimeout ("redireccionar()", 3000);
+  </script>
+</html>

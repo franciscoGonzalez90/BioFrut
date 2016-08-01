@@ -1,0 +1,21 @@
+	<!-- Template del Pais del sistema en donde se cargan los paises y los presenta en una tabla  -->
+	<div class="container" ng-controller="todosLosPaisesControllers">
+
+		<div class="row">
+			
+			<table class="table table-bordered">
+				<tr><td>Codigo</td><td>Nombre</td><!-- <td>Acciones</td> --></tr>
+				<tr ng-repeat="pais in todosLosPaises | filter:searchText">
+					<td>{{pais.IdPais}}</td>
+					<td>{{pais.Nombre}}</td>
+					<!-- <td>
+					<button type="button" class="btn btn-small btn-success"> <span class="icon-edit icon-white"></span> </button>
+					<button type="button" class="btn btn-small btn-success"> <span class="icon-trash icon-white"></span>  </button>
+					
+					</td> -->
+				</tr>
+			</table>
+
+		</div>
+	
+	</div>	

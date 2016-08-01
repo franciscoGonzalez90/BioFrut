@@ -1,0 +1,100 @@
+<div id="nuevazona" class="container" ng-controller="obtenerIdZonaControllers"  ng-controller="insertarZonaControllers">
+
+			
+				<form name="nuevaZona" role="form-inline" novalidate>
+			      
+			      <div class="row">
+					<div class="span3">
+
+					 	<div class="form-group">
+					 		<label for="">cod. Zona : </label>
+					 		<select  name="cod"  ng-model="zona.IdZona" required>
+						 	  <option disabled="disabled">Seleccione una opcion</option>
+							  <option ng-repeat="id in IdZona">{{id.cod}}</option>
+							</select>
+					 		<span style="color:red" ng-show="nuevaZona.cod.$dirty && nuevaZona.cod.$invalid">
+				             <span ng-show="nuevaZona.cod.$error.required">(*)</span>
+					 	</div>
+
+					</div>
+
+				 <div class="span3">
+					 	<div class="form-group">
+							<label for="">Nombre :</label>
+						 	<input type="text" name="nombre" class="form-group" ng-minlength="3" ng-pattern="/^[a-zA-ZÑñ0-9\s]*$/" placeholder="nombre" ng-model="zona.Nombre" required>
+						 	<span style="color:red" ng-show="nuevaZona.nombre.$dirty && nuevaZona.nombre.$invalid">
+                             <span ng-show="nuevaZona.nombre.$error.required">(*)</span>
+                             <span ng-show="nuevaZona.nombre.$error.minlength">Nombre debe contener minimo 3 caracteres</span>
+                             <span ng-show="nuevaZona.nombre.$error.pattern">Ingrese caracteres alfanumericos</span>
+					 	</div>
+				 </div>	
+				 <div class="span3">
+					 	<div class="form-group">
+						 	<label for="">Cod. Bodega :</label>
+						 
+						 	<select  name="bodega" ng-model="zona.IdBodega"  ng-controller="obtenerNombreBodegasControllers" required>
+						 		<option disabled="disabled">Seleccione una opcion</option>
+						 		<option ng-repeat="nombre in nombreBodegas">{{nombre.Nombre}}</option>
+							</select>
+							<span style="color:red" ng-show="nuevaZona.bodega.$dirty && nuevaZona.bodega.$invalid">
+							 <span ng-show="nuevaZona.bodega.$error.required">(*)</span>
+					 	</div>
+				 </div>
+				 <div class="span3">
+					 	<div class="form-group">
+						 	<label for="">Cod. Tipo Almacenaje :</label>
+						 	<select name="almacenaje" ng-model="zona.IdTipoAlmacenaje"  ng-controller="obtenerNombreAlmacenajesControllers" required>
+						 		<option disabled="disabled">Seleccione una opcion</option>
+							  	<option  ng-repeat="nombre in nombreAlmacenajes">{{nombre.Nombre}}</option>
+							</select>
+							<span style="color:red" ng-show="nuevaZona.almacenaje.$dirty && nuevaZona.almacenaje.$invalid">
+							<span ng-show="nuevaZona.almacenaje.$error.required">(*)</span>
+					 	</div>
+				 </div>
+               </div>  
+		
+		
+		</form>		
+			
+				
+	<div>
+
+	<button id="btnZona" ng-disabled="!nuevaZona.$valid" class="btn btn-success" ng-click="obtenerDatosZona(zona)"><span class="icon-edit icon-white"></span> Agregar</button> 
+	<!-- <button class="btn" ng-click="limpiarDatosZona()">Limpiar Campos</button> -->
+
+	</div>
+
+	   <br>
+
+		        <div id="codzona" class="alert alert-error">
+                  <button type="button" class="close" data-dismiss="alert"></button>
+                  <strong>{{idzona}}</strong>
+                </div>	
+
+                <div id="codbodega" class="alert alert-error">
+                  <button type="button" class="close" data-dismiss="alert"></button>
+                  <strong>{{idbodega}}</strong>
+                </div>		
+
+                <div id="codalmacenaje" class="alert alert-error">
+                  <button type="button" class="close" data-dismiss="alert"></button>
+                  <strong>{{idtipo}}</strong>
+                </div>	
+
+                <div  id="datosZona" class="alert alert-success">
+                 <button type="button" class="close" data-dismiss="alert"></button>
+                 <h4>Los datos fueron guardados exitosamente</h4>
+               </div>		
+
+</div>
+
+<script type="text/javascript">
+$("#codzona").hide();
+$("#codbodega").hide();
+$("#codalmacenaje").hide();
+
+$("#datosZona").hide();
+$("#btnZona").click(function(){
+$("#btnZona").attr("disabled", "disabled");
+});
+</script>

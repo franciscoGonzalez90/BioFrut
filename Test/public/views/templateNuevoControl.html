@@ -1,0 +1,106 @@
+<div class="container" ng-controller="obtenerIdControlControllers"  ng-controller="insertarControlControllers">
+
+			
+		<form name="nuevoControl" role="form-inline" novalidate>
+			<div class="row">
+
+				<div class="span3">
+					<div class="form-group">
+					 	<label for="">Cod. Control de Calidad : </label>
+					 		<select  name="cod"  ng-model="control.IdControl" required>
+						 	  <option disabled="disabled">Seleccione una opcion</option>
+							  <option ng-repeat="id in IdControl">{{id.cod}}</option>
+							</select>
+					 	<span style="color:red" ng-show="nuevoControl.codigo.$dirty && nuevoControl.codigo.$invalid">
+				        <span ng-show="nuevoControl.codigo.$error.required">(*)</span>
+					</div>
+				</div>
+                    
+
+				<div class="span3">
+					<div class="form-group">
+						<label for="">Total Merma:</label>
+						 	<input  type="text" name="merma" ng-pattern="/[0-9]/" class="form-group" placeholder="merma" ng-model="control.TotalMerma" ng-maxlength="3" required>
+                        <span style="color:red" ng-show="nuevoControl.merma.$dirty && nuevoControl.merma.$invalid">
+				        <span ng-show="nuevoControl.merma.$error.required">(*)</span>
+				        <span ng-show="nuevoControl.merma.$error.maxlength">Merma debe contener maximo 3 caracteres</span>
+				        <span ng-show="nuevoControl.merma.$error.pattern">Ingrese numeros</span>
+					</div>
+				</div>
+
+				<div class="span3">
+					<div class="form-group">
+						<label for=""> Calificacion :</label>
+						 	<select name="calificacion" ng-model="control.IdCalificacion"  ng-controller="obtenerNombreCalificacionesControllers" required>
+						 	  <option disabled="disabled">Seleccione una opcion</option>
+							  <option  ng-repeat="calificacion in nombreCalificaciones">{{calificacion.Nota}}</option>
+							</select>
+						<span style="color:red" ng-show="nuevoControl.calificacion.$dirty && nuevoControl.calificacion.$invalid">
+				        <span ng-show="nuevoControl.calificacion.$error.required">(*)</span>
+					</div>
+				</div>
+            
+				
+				<div class="span3">
+					<div class="form-group">
+						<label for=""> Estado del producto :</label>
+						 	<select name="producto" ng-model="control.IdEstadoProducto"  ng-controller="obtenerNombreEstadosControllers" required>
+						 		<option disabled="disabled">Seleccione una opcion</option>
+							  	<option  ng-repeat="nombre in nombreEstadoProductos">{{nombre.Nombre}}</option>
+							</select>
+					    <span style="color:red" ng-show="nuevoControl.producto.$dirty && nuevoControl.producto.$invalid">
+				        <span ng-show="nuevoControl.producto.$error.required">(*)</span>
+					 	</div>
+				 </div>
+				</div>
+				</form>
+
+				<br>
+				 <div>
+
+				 	<button id="btnControlCalidad" ng-disabled="!nuevoControl.$valid" class="btn btn-success" ng-click="obtenerDatosControl(control)"><span class="icon-edit icon-white"></span> Agregar</button> 
+			
+				 	<!-- <button class="btn" ng-click="limpiarDatosControl()">Limpiar Campos</button> -->
+
+				 </div>
+
+				    <br>
+				    
+				 <div id="codcalidad" class="text-center alert  alert-error"> 
+                  <button  type="button" class="close" data-dismiss="alert"></button> 
+                  <strong>{{codcontrol}}</strong>   
+                 </div>
+
+                 <div id="total" class="text-center alert  alert-error"> 
+                  <button  type="button" class="close" data-dismiss="alert"></button> 
+                  <strong>{{total}}</strong>   
+                 </div>
+                  
+                 <div id="nota" class="text-center alert  alert-error"> 
+                  <button  type="button" class="close" data-dismiss="alert"></button> 
+                  <strong>{{nota}}</strong>   
+                 </div>
+
+                 <div id="estadoproducto" class="text-center alert  alert-error"> 
+                  <button  type="button" class="close" data-dismiss="alert"></button> 
+                  <strong>{{estado}}</strong>   
+                 </div>
+
+                <div  id="datosCalidad" class="alert alert-success">
+                 <button type="button" class="close" data-dismiss="alert"></button>
+                 <h4>Los datos fueron guardados exitosamente</h4>
+               </div>
+
+</div>
+
+<script type="text/javascript">
+$('#codcalidad').hide();
+$('#total').hide();
+$('#nota').hide();
+$('#estadoproducto').hide();
+$('#datosCalidad').hide();
+$("#btnControlCalidad").click(function(){
+$("#btnControlCalidad").attr("disabled", "disabled");
+});
+
+</script>

@@ -1,0 +1,78 @@
+<div class="container" ng-controller="obtenerIdTarjetaControllers" ng-controller="insertarTarjetaControllers">
+
+			
+				<form name="nuevaTarjeta" role="form-inline" novalidate>
+			
+					<div class="span3">
+
+					 	<div class="form-group">
+					 		<label for="">Cod. Tarjeta : </label>
+					 		<select  name="cod"  ng-model="tarjeta.IdTarjeta" required>
+						 	  <option disabled="disabled">Seleccione una opcion</option>
+							  <option ng-repeat="id in IdTarjeta">{{id.cod}}</option>
+							</select>
+					 		 <span style="color:red" ng-show="nuevaTarjeta.codigo.$dirty && nuevaTarjeta.codigo.$invalid">
+				             <span ng-show="nuevaTarjeta.codigo.$error.required">Codigo Invalido</span>
+					 	</div>
+
+					</div>
+
+				 <div class="span3">
+					 	<div class="form-group">
+							<label for="">Fecha Ingreso :</label>
+						 	<input type="text" name="fecha" ng-pattern="/^(0?[1-9]|[12][0-9]|3[01])[\/\-\.](0?[1-9]|1[012])[\/\-\.](\d{4})$/" ng-maxlength="10" class="form-group" placeholder="Dia/Mes/Año" ng-model="tarjeta.FechaIngreso" required>
+						 	<span style="color:red" ng-show="nuevaTarjeta.fecha.$dirty && nuevaTarjeta.fecha.$invalid">
+						 	<span ng-show="nuevaTarjeta.fecha.$error.required">Fecha Requerido.</span>
+						 	<span ng-show="nuevaTarjeta.fecha.$error.pattern">formato fecha dia/mes/año</span>
+						 	<span ng-show="nuevaTarjeta.fecha.$error.maxlength">la fecha debe contener 8 caracteres maximo</span>
+					 	</div>
+				 </div>	
+
+				 <div class="span3">
+					 	<div class="form-group">
+						 	<label for="">Rut :</label>
+						 	<select  name="rut" ng-model="tarjeta.Rut"  ng-controller="obtenerNombreTrabajadoresControllers" required>
+						 		<option disabled="disabled">Seleccione una opcion</option>
+							  	<option  ng-repeat="nombre in nombreTrabajadores">{{nombre.Rut}}</option>
+							</select>
+							 <span style="color:red" ng-show="nuevaTarjeta.rut.$dirty && nuevaTarjeta.rut.$invalid">
+				             <span ng-show="nuevaTarjeta.rut.$error.required">Rut Requerido</span>
+					 	</div>
+				 </div>
+
+
+
+
+				</form>	
+
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				 <div>
+
+				 	<button id="btnTarjeta" ng-disabled="!nuevaTarjeta.$valid" class="btn btn-success" ng-click="obtenerDatosTarjeta(tarjeta)"><span class="icon-edit icon-white"></span> Agregar</button> 
+			
+				 	<!-- <button class="btn" ng-click="limpiarDatosTarjeta()">Limpiar Campos</button> -->
+
+				 </div>
+
+				 <br>
+
+                <div  id="datosTarjeta" class="alert alert-success">
+                 <button type="button" class="close" data-dismiss="alert"></button>
+                 <h4>Los datos fueron guardados exitosamente</h4>
+               </div>
+
+			
+
+</div>
+
+<script type="text/javascript">
+$("#datosTarjeta").hide();
+$("#btnTarjeta").click(function(){
+$("#btnTarjeta").attr("disabled", "disabled");
+});
+
+</script>

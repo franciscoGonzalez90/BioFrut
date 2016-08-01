@@ -1,0 +1,88 @@
+<div class="container" ng-controller="obtenerIdCuadrillaControllers"  ng-controller="insertarCuadrillaControllers">
+
+			
+				<form name="nuevaCuadrilla" role="form-inline" novalidate>
+			
+					<div class="span3">
+
+					 	<div class="form-group">
+					 		<label for="">cod. Cuadrilla : </label>
+					 		<select  name="cod"  ng-model="cuadrilla.IdCuadrilla" required>
+						 	  <option disabled="disabled">Seleccione una opcion</option>
+							  <option ng-repeat="id in IdCuadrilla">{{id.cod}}</option>
+							</select>
+					 		<span style="color:red" ng-show="nuevaCuadrilla.cod.$dirty && nuevaCuadrilla.cod.$invalid">
+				             <span ng-show="nuevaCuadrilla.cod.$error.required">(*)</span>
+					 	</div>
+
+					</div>
+
+				 <div class="span3">
+					 	<div class="form-group">
+							<label for="">Nombre :</label>
+						 	<input type="text" name="nombre" ng-minlength="3" ng-pattern="/^[a-zA-Z\s]*$/" class="form-group" placeholder="nombre" ng-model="cuadrilla.Nombre" required>
+						 	  <span style="color:red" ng-show="nuevaCuadrilla.nombre.$dirty && nuevaCuadrilla.nombre.$invalid">
+                             <span ng-show="nuevaCuadrilla.nombre.$error.required">(*)</span>
+                             <span ng-show="nuevaCuadrilla.nombre.$error.minlength">Nombre debe contener minimo 3 caracteres</span>
+                             <span ng-show="nuevaCuadrilla.nombre.$error.pattern">Ingrese letras</span>
+					 	</div>
+				 </div>	
+
+				
+				 <div class="span3">
+					 	<div class="form-group">
+						 	<label for="">Huerto :</label>
+						 	<select  name="" ng-model="cuadrilla.IdHuerto"  ng-controller="obtenerNombreHuertosControllers" required>
+						 		<option disabled="disabled">Seleccione una opcion</option>
+							  	<option  ng-repeat="nombre in nombreHuertos">{{nombre.Nombre}}</option>
+							</select>
+							 <span style="color:red" ng-show="nuevaBodega.ciudad.$dirty && nuevaBodega.ciudad.$invalid">
+							 <span ng-show="nuevaBodega.ciudad.$error.required">(*)</span>
+					 	</div>
+				 </div>
+
+				</form>	
+
+				<br>
+				<br>
+				<br>
+				<br>
+				 <div>
+
+				 	<button id="btnCuadrilla" ng-disabled="!nuevaCuadrilla.$valid" class="btn btn-success" ng-click="obtenerDatosCuadrilla(cuadrilla)"><span class="icon-edit icon-white"></span> Agregar</button> 
+			
+				 	<!-- <button class="btn" ng-click="limpiarDatosCuadrilla()">Limpiar Campos</button> -->
+
+				 </div>
+
+				  <br>
+
+				 <div id="idcuadrilla" class="alert alert-error">
+                  <button type="button" class="close" data-dismiss="alert"></button>
+                  <strong>{{codcuadrilla}}</strong>
+                </div>
+
+             
+                 <div id="idhuerto" class="alert alert-error">
+                  <button type="button" class="close" data-dismiss="alert"></button>
+                  <strong>{{codhuerto}}</strong>
+                </div>
+
+              <div  id="datosCuadrilla" class="alert alert-success">
+                 <button type="button" class="close" data-dismiss="alert"></button>
+                 <h4>Los datos fueron guardados exitosamente</h4>
+             </div>
+
+			
+
+</div>
+
+<script type="text/javascript">
+$("#idcuadrilla").hide();
+$("#idhuerto").hide();
+$("#datosCuadrilla").hide();
+$("#btnCuadrilla").click(function() {
+$("#btnCuadrilla").attr("disabled", "disabled");
+});
+
+</script>
